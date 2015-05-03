@@ -10,16 +10,15 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="YA ESTOY REGISTRADO"
+        android:text="@string/boton_registrado"
         android:layout_marginTop="150dp"
         android:id="@+id/bRegistrado" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NUEVO USUARIO"
+        android:text="@string/boton_nuevo_usuario"
         android:id="@+id/bNuevoUsuario"
-        android:layout_marginTop="220dp"
-        android:onClick="sumar"/>
+        android:layout_marginTop="220dp" />
 
 </RelativeLayout>

@@ -11,14 +11,11 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
-    private TextView tv1;
-    private EditText et1,et2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        et1=(EditText)findViewById(R.id.editText);
-        et2=(EditText)findViewById(R.id.editText2);
 
     }
 
@@ -43,13 +40,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void sumar(View view) {
-        String valor1=et1.getText().toString();
-        String valor2=et2.getText().toString();
-        int nro1=Integer.parseInt(valor1);
-        int nro2=Integer.parseInt(valor2);
-        int suma=nro1+nro2;
-        Toast toast = Toast.makeText(this, "El resultado es " + suma, Toast.LENGTH_SHORT);
-        toast.show();
-    }
+
 }
