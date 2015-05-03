@@ -11,4 +11,6 @@
     <string name="texto_fitness">Fitness</string>
     <string name="boton_registrado">YA ESTOY REGISTRADO</string>
     <string name="boton_nuevo_usuario">NUEVO USUARIO</string>
+    <string name="title_activity_impresion">Mi Personal Trainer</string>
+
 </resources>

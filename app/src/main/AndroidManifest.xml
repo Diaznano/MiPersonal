@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eci.mipersonaltrainer.NuevoUsuarioActivity" />
         </activity>
+        <activity
+            android:name=".ImpresionActivity"
+            android:label="@string/title_activity_impresion"
+            android:parentActivityName=".ObjetivosActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.eci.mipersonaltrainer.ObjetivosActivity" />
+        </activity>
     </application>
 
 </manifest>
