@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eci.mipersonaltrainer.MainActivity" />
         </activity>
+        <activity
+            android:name=".ObjetivosActivity"
+            android:label="@string/title_activity_objetivo"
+            android:parentActivityName=".NuevoUsuarioActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.eci.mipersonaltrainer.NuevoUsuarioActivity" />
+        </activity>
     </application>
 
 </manifest>

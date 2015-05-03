@@ -3,6 +3,11 @@
 
     <string name="action_settings">Ajustes</string>
     <string name="title_activity_nuevo_usuario">Nuevo Usuario</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_objetivo">Mi Objetivo</string>
+    <string name="content_salud">Quiero Salud!</string>
+    <string name="content_fitness">Quiero Fitness!</string>
+    <string name="content_deportes">Quiero Deportes!</string>
+    <string name="texto_deportes">Deportes</string>
+    <string name="texto_salud">Salud</string>
+    <string name="texto_fitness">Fitness</string>
 </resources>
