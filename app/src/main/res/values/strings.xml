@@ -14,4 +14,6 @@
     <string name="title_activity_impresion">Mi Personal Trainer</string>
     <string name="saca_dieta">Sacá tu Dieta!</string>
     <string name="saca_rutina">Sacá tu Rutina!</string>
+    <string name="title_activity_usuario_ya_registrado">Ingreso</string>
+    <string name="hint_busqueda_dni">Ingresá tu DNI</string>
 </resources>
