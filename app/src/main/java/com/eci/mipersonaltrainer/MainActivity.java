@@ -1,5 +1,6 @@
 package com.eci.mipersonaltrainer;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -41,4 +42,12 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void abreVistaNuevoUsuario (View view){
+        Intent i = new Intent(this, NuevoUsuarioActivity.class );
+        startActivity(i);
+    }
+    public void abreVistaUsuarioYaRegistrado (View view){
+        Intent i = new Intent(this, UsuarioYaRegistradoActivity.class );
+        startActivity(i);
+    }
 }
