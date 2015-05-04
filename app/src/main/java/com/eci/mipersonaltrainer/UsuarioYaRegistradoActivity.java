@@ -4,14 +4,18 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 
 public class UsuarioYaRegistradoActivity extends ActionBarActivity {
 
+    private SearchView sv1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_ya_registrado);
+        sv1 = (SearchView) findViewById(R.id.searchView);
+        sv1.setIconified(false);
     }
 
     @Override

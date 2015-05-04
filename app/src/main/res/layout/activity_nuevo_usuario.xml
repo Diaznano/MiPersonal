@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Nombre"
+        android:hint="@string/hint_nombre"
         android:ems="10"
         android:id="@+id/etNom"
         android:layout_alignParentTop="true"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Apellido"
+        android:hint="@string/hint_apellido"
         android:ems="10"
         android:id="@+id/etApe"
         android:layout_marginTop="26dp"
@@ -41,7 +41,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="26dp"
-        android:text="DNI" />
+        android:hint="@string/hint_dni" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Fecha de Nacimiento" />
+        android:hint="@string/hint_fecha" />
 
     <EditText
         android:layout_width="75dp"
@@ -64,7 +64,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="26dp"
-        android:text="Altura" />
+        android:hint="@string/hint_altura" />
 
     <EditText
         android:layout_width="75dp"
@@ -76,12 +76,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="26dp"
-        android:text="Peso" />
+        android:hint="@string/hint_peso" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Siguiente"
+        android:text="@string/boton_siguiente"
         android:id="@+id/bGuardar"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="kg"
+        android:hint="kg"
         android:id="@+id/tvKg"
         android:layout_alignBottom="@+id/etPeso"
         android:layout_toRightOf="@+id/etPeso"
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="cm"
+        android:hint="cm"
         android:id="@+id/tvCm"
         android:layout_above="@+id/etPeso"
         android:layout_toRightOf="@+id/etAltura"

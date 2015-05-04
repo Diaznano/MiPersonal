@@ -3,6 +3,13 @@
     <string name="action_settings">Ajustes</string>
     <string name="title_activity_nuevo_usuario">Nuevo Usuario</string>
     <string name="title_activity_objetivo">Mi Objetivo</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_apellido">Apellido</string>
+    <string name="hint_fecha">Fecha de Nacimiento</string>
+    <string name="hint_peso">Peso</string>
+    <string name="hint_altura">Altura</string>
+    <string name="hint_dni">DNI</string>
+    <string name="boton_siguiente">Siguiente</string>
     <string name="content_salud">Quiero Salud!</string>
     <string name="content_fitness">Quiero Fitness!</string>
     <string name="content_deportes">Quiero Deportes!</string>
