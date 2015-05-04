@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class ImpresionActivity extends ActionBarActivity {
@@ -34,5 +36,13 @@ public class ImpresionActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void mensajeRutina(View view){
+        Toast t1 = Toast.makeText(this,"Imprimiendo rutina.. dirigirse a recepción",Toast.LENGTH_LONG);
+        t1.show();
+    }
+    public void mensajeDieta(View view){
+        Toast t2 = Toast.makeText(this,"Imprimiendo dieta.. dirigirse a recepción",Toast.LENGTH_LONG);
+        t2.show();
     }
 }

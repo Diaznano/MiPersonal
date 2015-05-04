@@ -16,7 +16,8 @@
         android:src="@mipmap/football"
         android:layout_marginTop="50dp"
         android:contentDescription="@string/content_deportes"
-        android:adjustViewBounds="false" />
+        android:adjustViewBounds="false"
+        android:onClick="abreVistaImpresion"/>
     <ImageButton
         android:layout_width="160dp"
         android:layout_height="150dp"
@@ -26,6 +27,7 @@
         android:src="@mipmap/gym"
         android:layout_marginTop="50dp"
         android:contentDescription="@string/content_fitness"
+        android:onClick="abreVistaImpresion"
         />
     <ImageButton
         android:layout_width="160dp"
@@ -36,6 +38,7 @@
         android:src="@mipmap/salud"
         android:layout_marginTop="280dp"
         android:contentDescription="@string/content_salud"
+        android:onClick="abreVistaImpresion"
         />
 
     <TextView
