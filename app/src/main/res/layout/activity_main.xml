@@ -13,6 +13,8 @@
         android:text="@string/boton_registrado"
         android:layout_marginTop="150dp"
         android:id="@+id/bRegistrado"
+        android:alpha="0.8"
+        android:background="#009ffb"
         android:onClick="abreVistaUsuarioYaRegistrado"/>
 
     <Button
@@ -21,6 +23,8 @@
         android:text="@string/boton_nuevo_usuario"
         android:id="@+id/bNuevoUsuario"
         android:layout_marginTop="220dp"
+        android:background="#009ffb"
+        android:alpha="0.8"
         android:onClick="abreVistaNuevoUsuario"/>
 
 </RelativeLayout>

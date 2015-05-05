@@ -2,9 +2,9 @@
     <string name="app_name">Mi Personal Trainer</string>
     <string name="action_settings">Ajustes</string>
     <string name="title_activity_nuevo_usuario">Nuevo Usuario</string>
-    <string name="title_activity_objetivo">Mi Objetivo</string>
-    <string name="hint_nombre">Nombre</string>
-    <string name="hint_apellido">Apellido</string>
+    <string name="title_activity_objetivo">Elegí un objetivo</string>
+    <string name="hint_nombre">Nombre y Apellido</string>
+    <string name="hint_email">Email</string>
     <string name="hint_fecha">Fecha de Nacimiento</string>
     <string name="hint_peso">Peso</string>
     <string name="hint_altura">Altura</string>

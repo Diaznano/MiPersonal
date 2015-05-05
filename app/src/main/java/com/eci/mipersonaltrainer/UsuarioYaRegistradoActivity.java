@@ -6,15 +6,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import roboguice.inject.InjectView;
+
 
 public class UsuarioYaRegistradoActivity extends ActionBarActivity {
 
-    private SearchView sv1;
+    @InjectView(R.id.searchView) SearchView sv1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_ya_registrado);
-        sv1 = (SearchView) findViewById(R.id.searchView);
         sv1.setIconified(false);
     }
 
