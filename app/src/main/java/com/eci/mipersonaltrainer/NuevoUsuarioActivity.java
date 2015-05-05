@@ -1,11 +1,10 @@
 package com.eci.mipersonaltrainer;
 
-import android.app.ActionBar;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 import roboguice.inject.InjectView;
 
 
-public class NuevoUsuarioActivity extends ActionBarActivity {
+public class NuevoUsuarioActivity extends AppCompatActivity {
     @InjectView(R.id.etNom) EditText etNomApe;
     @InjectView(R.id.etAltura) EditText etAltura;
     @InjectView(R.id.etPeso) EditText etPeso;
