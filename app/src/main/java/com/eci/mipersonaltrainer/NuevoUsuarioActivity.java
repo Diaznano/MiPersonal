@@ -76,6 +76,13 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         etAltura.setText("");
         etEmail.setText("");
         Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();
+        try
+        {
+            Intent i = new Intent(this, ObjetivosActivity.class );
+            startActivity(i);
+    } catch(Exception ex){
+            Toast.makeText(this,"Error",Toast.LENGTH_LONG).show();
+        }
     }
     public void abreVistaObjetivos(View view){
         Intent i = new Intent(this, ObjetivosActivity.class );

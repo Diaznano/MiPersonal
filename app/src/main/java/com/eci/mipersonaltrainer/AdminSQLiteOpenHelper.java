@@ -18,7 +18,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         String CREATE_USUARIO_TABLE = "CREATE TABLE usuarios( " +
                 "nombre TEXT, "+
                 "dni INTEGER PRIMARY KEY, "+
-                "fechaNac INTEGER, "+
+                "fechaNac BLOB, "+
                 "peso REAL, "+
                 "altura INTEGER, "+
                 "email TEXT )";
