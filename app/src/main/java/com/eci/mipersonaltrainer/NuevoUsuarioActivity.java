@@ -12,12 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class NuevoUsuarioActivity extends AppCompatActivity {
-    EditText etNomApe;
-    EditText etAltura;
-    EditText etPeso;
-    EditText etEmail;
-    EditText etFecha;
-    EditText etDni;
+
+    private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
