@@ -11,21 +11,23 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import roboguice.inject.InjectView;
-
-
 public class NuevoUsuarioActivity extends AppCompatActivity {
-    @InjectView(R.id.etNom) EditText etNomApe;
-    @InjectView(R.id.etAltura) EditText etAltura;
-    @InjectView(R.id.etPeso) EditText etPeso;
-    @InjectView(R.id.etEmail) EditText etEmail;
-    @InjectView(R.id.etFecha) EditText etFecha;
-    @InjectView(R.id.etDni) EditText etDni;
-
+    EditText etNomApe;
+    EditText etAltura;
+    EditText etPeso;
+    EditText etEmail;
+    EditText etFecha;
+    EditText etDni;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_usuario);
+        etNomApe = (EditText)findViewById(R.id.etNom);
+        etAltura = (EditText)findViewById(R.id.etAltura);
+        etPeso = (EditText)findViewById(R.id.etPeso);
+        etEmail = (EditText)findViewById(R.id.etEmail);
+        etFecha = (EditText)findViewById(R.id.etFecha);
+        etDni = (EditText)findViewById(R.id.etDni);
 
     }
 
