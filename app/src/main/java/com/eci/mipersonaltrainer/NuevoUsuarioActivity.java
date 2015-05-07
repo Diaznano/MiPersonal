@@ -80,11 +80,8 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             Intent i = new Intent(this, ObjetivosActivity.class );
             startActivity(i);
     } catch(Exception ex){
-            Toast.makeText(this,"Error",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
         }
     }
-    public void abreVistaObjetivos(View view){
-        Intent i = new Intent(this, ObjetivosActivity.class );
-        startActivity(i);
-    }
+
 }
