@@ -76,6 +76,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     public void alta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
+        boolean n,d,e,f,p,a;
         String nombre = etNomApe.getText().toString();
         String dni = etDni.getText().toString();
         String email = etEmail.getText().toString();
@@ -83,7 +84,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         // int a = edad(fecha); CALCULO EDAD
         String peso = etPeso.getText().toString();
         String altura = etAltura.getText().toString();
-        ContentValues registro = new ContentValues();
+        /*ContentValues registro = new ContentValues();
         registro.put("nombre", nombre);
         registro.put("dni", dni);
         registro.put("fechaNac", fecha);
@@ -91,18 +92,25 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         registro.put("altura", altura);
         registro.put("email", email);
         bd.insert("usuarios", null, registro);
-        bd.close();
-        etNomApe.setText("");
-        etDni.setText("");
-        etFecha.setText("");
-        etPeso.setText("");
-        etAltura.setText("");
-        etEmail.setText("");
-        Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();
+        bd.close();*/ //*********Pasar como parametro el registro al siguiente activity y guardar en la base de datos con el objetivo
+        if(nombre.length() == 0 || dni.length() == 0 || email.length() == 0 || fecha.length() == 0
+                || peso.length() == 0 || altura.length() == 0){
+            Toast.makeText(this,"debe completrar los campos",Toast.LENGTH_SHORT).show();
+
+        }
+
         try
         {
+
+            etNomApe.setText("");
+            etDni.setText("");
+            etFecha.setText("");
+            etPeso.setText("");
+            etAltura.setText("");
+            etEmail.setText("");
             Intent i = new Intent(this, ObjetivosActivity.class );
             startActivity(i);
+            Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();
     } catch(Exception ex){
             Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
         }
