@@ -11,20 +11,23 @@
         android:layout_height="120dp"
         android:text="@string/saca_rutina"
         android:id="@+id/bRutina"
-        android:layout_marginTop="59dp"
-        android:layout_marginLeft="30dp"
         android:textSize="36sp"
         android:onClick="mensajeRutina"
-        android:textColor="@color/accent_material_dark"/>
+        android:textColor="@color/accent_material_dark"
+        android:layout_marginTop="189dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/bDieta"
+        android:layout_alignStart="@+id/bDieta" />
 
     <Button
         android:layout_width="280dp"
         android:layout_height="120dp"
         android:text="@string/saca_dieta"
         android:id="@+id/bDieta"
-        android:layout_marginTop="240dp"
-        android:layout_marginLeft="30dp"
         android:textSize="36sp"
         android:onClick="mensajeDieta"
-        android:textColor="@color/accent_material_dark"/>
+        android:textColor="@color/accent_material_dark"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="306dp" />
 </RelativeLayout>

@@ -15,7 +15,9 @@
         android:id="@+id/bRegistrado"
         android:alpha="0.8"
         android:background="#009ffb"
-        android:onClick="abreVistaUsuarioYaRegistrado" />
+        android:onClick="abreVistaUsuarioYaRegistrado"
+        android:layout_alignRight="@+id/bNuevoUsuario"
+        android:layout_alignEnd="@+id/bNuevoUsuario" />
 
     <Button
         android:layout_width="match_parent"
