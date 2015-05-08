@@ -44,9 +44,9 @@
         android:hint="@string/hint_dni" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:inputType="date"
         android:ems="10"
         android:id="@+id/etFecha"
         android:layout_centerVertical="true"
