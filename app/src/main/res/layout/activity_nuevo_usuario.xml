@@ -14,10 +14,10 @@
         android:hint="@string/hint_nombre"
         android:ems="10"
         android:id="@+id/etNom"
+        android:layout_marginTop="61dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp" />
+        android:layout_alignLeft="@+id/etEmail"
+        android:layout_alignStart="@+id/etEmail" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -26,10 +26,10 @@
         android:hint="@string/hint_email"
         android:ems="10"
         android:id="@+id/etEmail"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/etNom"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/etDni"
+        android:layout_alignLeft="@+id/etDni"
+        android:layout_alignStart="@+id/etDni"
+        android:layout_marginBottom="102dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,22 +37,23 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/etDni"
-        android:layout_below="@+id/etEmail"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:hint="@string/hint_dni" />
+        android:hint="@string/hint_dni"
+        android:layout_above="@+id/etFecha"
+        android:layout_alignLeft="@+id/etFecha"
+        android:layout_alignStart="@+id/etFecha"
+        android:layout_marginBottom="114dp" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
         android:id="@+id/etFecha"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="@string/hint_fecha" />
+        android:hint="@string/hint_fecha"
+        android:layout_above="@+id/etAltura"
+        android:layout_alignLeft="@+id/etAltura"
+        android:layout_alignStart="@+id/etAltura"
+        android:layout_marginBottom="95dp" />
 
     <EditText
         android:layout_width="75dp"
@@ -60,11 +61,11 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/etAltura"
-        android:layout_below="@+id/etFecha"
+        android:hint="@string/hint_altura"
+        android:layout_above="@+id/etPeso"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:hint="@string/hint_altura" />
+        android:layout_marginBottom="79dp" />
 
     <EditText
         android:layout_width="75dp"
@@ -72,11 +73,11 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/etPeso"
-        android:layout_below="@+id/etAltura"
+        android:hint="@string/hint_peso"
+        android:layout_above="@+id/bGuardar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:hint="@string/hint_peso" />
+        android:layout_marginBottom="77dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -107,7 +108,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:hint="cm"
         android:id="@+id/tvCm"
-        android:layout_above="@+id/etPeso"
+        android:layout_alignBottom="@+id/etAltura"
         android:layout_toRightOf="@+id/etAltura"
         android:layout_toEndOf="@+id/etAltura" />
 </RelativeLayout>
