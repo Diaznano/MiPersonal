@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NuevoUsuarioActivity extends AppCompatActivity {
 
     private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
@@ -50,6 +53,26 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // ------- CALCULAR EDAD --------
+
+    /* public int edad(String fecha_nac){
+        Date fechaActual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String hoy = formato.format(fechaActual);
+        String[] dat1 = fecha_nac.split("/");
+        String[] dat2 = hoy.split("/");
+        int ano = Integer.parseInt(dat2[2]) - Integer.parseInt(dat1[2]);
+        int mes = Integer.parseInt(dat2[1]) - Integer.parseInt(dat1[1]);
+        if(mes < 0) {
+            ano = ano - 1;
+        } else if(mes == 0) {
+            int dia = Integer.parseInt(dat2[0]) - Integer.parseInt(dat1[0]);
+            if(dia > 0)
+                ano = ano - 1;
+        }
+        return ano;
+    } */
+
     public void alta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -57,6 +80,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         String dni = etDni.getText().toString();
         String email = etEmail.getText().toString();
         String fecha = etFecha.getText().toString();
+        // int a = edad(fecha); CALCULO EDAD
         String peso = etPeso.getText().toString();
         String altura = etAltura.getText().toString();
         ContentValues registro = new ContentValues();
