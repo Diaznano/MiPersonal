@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class NuevoUsuarioActivity extends AppCompatActivity {
 
     private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
+    private TextView tvNom, tvAltura, tvPeso, tvEmail, tvFecha, tvDni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,12 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         etEmail = (EditText)findViewById(R.id.etEmail);
         etFecha = (EditText)findViewById(R.id.etFecha);
         etDni = (EditText)findViewById(R.id.etDni);
+        tvNom = (TextView)findViewById(R.id.tvNombre);
+        tvAltura = (TextView)findViewById(R.id.tvAltura);
+        tvDni = (TextView)findViewById(R.id.tvDNI);
+        tvEmail = (TextView)findViewById(R.id.tvEma);
+        tvPeso = (TextView)findViewById(R.id.tvPeso);
+        tvFecha = (TextView)findViewById(R.id.tvFecha);
 
     }
 
@@ -76,7 +84,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     public void alta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        boolean n,d,e,f,p,a;
+        boolean b=true;
         String nombre = etNomApe.getText().toString();
         String dni = etDni.getText().toString();
         String email = etEmail.getText().toString();
@@ -96,23 +104,41 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         if(nombre.length() == 0 || dni.length() == 0 || email.length() == 0 || fecha.length() == 0
                 || peso.length() == 0 || altura.length() == 0){
             Toast.makeText(this,"debe completrar los campos",Toast.LENGTH_SHORT).show();
-
+            if(nombre.length() == 0)
+                tvNom.setText("Completar NOMBRE y APELLIDO");
+            if(dni.length() == 0)
+                tvDni.setText("Completar DNI");
+            if(email.length() == 0)
+                tvEmail.setText("Completar EMAIL");
+            if(fecha.length() == 0)
+                tvFecha.setText("Completar FECHA");
+            if(peso.length() == 0)
+                tvPeso.setText("Completar PESO");
+            if(altura.length() == 0)
+                tvAltura.setText("Completar ALTURA");
+            b=false;
         }
-
+        if (b==true){
         try
         {
-
             etNomApe.setText("");
             etDni.setText("");
             etFecha.setText("");
             etPeso.setText("");
             etAltura.setText("");
             etEmail.setText("");
+            tvAltura.setText("");
+            tvPeso.setText("");
+            tvEmail.setText("");
+            tvDni.setText("");
+            tvFecha.setText("");
+            tvNom.setText("");
             Intent i = new Intent(this, ObjetivosActivity.class );
             startActivity(i);
             Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();
     } catch(Exception ex){
             Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+        }
         }
     }
 
