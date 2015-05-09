@@ -84,7 +84,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     public void alta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        boolean b=true;
+        boolean b=true,c=true;
         String nombre = etNomApe.getText().toString();
         String dni = etDni.getText().toString();
         String email = etEmail.getText().toString();
@@ -118,8 +118,15 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                 tvAltura.setText("Completar ALTURA");
             b=false;
         }
-        if (b==true){
-        try
+        if(email.matches("[a-zA-Z0-9._-]+@[a-z]+\\\\.[a-z]+") && email.length() > 0){
+            tvEmail.setText("E-mail Valido");
+
+        }else {
+            tvEmail.setText("E-mail Invalido");
+            c=false;
+        }
+        if (b==true && c==true){
+            try
         {
             etNomApe.setText("");
             etDni.setText("");
