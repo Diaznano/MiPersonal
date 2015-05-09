@@ -14,9 +14,11 @@
         android:hint="@string/hint_nombre"
         android:ems="10"
         android:id="@+id/etNom"
+        android:layout_marginTop="61dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/etEmail"
+        android:layout_alignStart="@+id/etEmail"
+        android:textSize="30dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -25,10 +27,11 @@
         android:hint="@string/hint_email"
         android:ems="10"
         android:id="@+id/etEmail"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/etNom"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="69dp"
+        android:textSize="30dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,10 +40,11 @@
         android:ems="10"
         android:id="@+id/etDni"
         android:hint="@string/hint_dni"
+        android:layout_marginTop="95dp"
+        android:textSize="30dp"
         android:layout_below="@+id/etEmail"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -49,12 +53,13 @@
         android:ems="10"
         android:id="@+id/etFecha"
         android:hint="@string/hint_fecha"
-        android:layout_below="@+id/etDni"
+        android:layout_above="@+id/etAltura"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="75dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="30dp" />
 
     <EditText
         android:layout_width="75dp"
@@ -63,10 +68,10 @@
         android:ems="10"
         android:id="@+id/etAltura"
         android:hint="@string/hint_altura"
-        android:layout_below="@+id/etFecha"
+        android:textSize="30dp"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="75dp"
@@ -75,10 +80,11 @@
         android:ems="10"
         android:id="@+id/etPeso"
         android:hint="@string/hint_peso"
+        android:layout_marginTop="87dp"
+        android:textSize="30dp"
         android:layout_below="@+id/etAltura"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -90,7 +96,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="alta" />
+        android:onClick="alta"
+        android:textSize="45dp"
+        android:textStyle="bold" />
 
 
     <TextView
