@@ -1,10 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-
     tools:context="com.eci.mipersonaltrainer.UsuarioYaRegistradoActivity">
 
 
@@ -17,10 +19,15 @@
         android:layout_marginTop="7dp"
         />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
         android:text="@string/btn_buscar"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="3dp"
+        fbutton:cornerRadius="5dp"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
         android:id="@+id/bBuscar"
         android:onClick="consultaporcodigo"
         android:layout_marginLeft="135dp"/>
