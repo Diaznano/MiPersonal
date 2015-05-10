@@ -1,0 +1,149 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+
+    tools:context="com.eci.mipersonaltrainer.UsuarioYaRegistradoActivity">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etDni"
+        android:inputType="number"
+        android:hint="@string/hint_busqueda_dni"
+        android:layout_marginTop="7dp"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_buscar"
+        android:id="@+id/bBuscar"
+        android:onClick="consultaporcodigo"
+        android:layout_below="@+id/tvKg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="361dp"
+        android:textStyle="bold"
+        android:textSize="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etNom"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="60dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etEmail"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tvN"
+        android:layout_toRightOf="@+id/tvA"
+        android:layout_toEndOf="@+id/tvA" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etAltura"
+        android:inputType="number"
+        android:layout_alignTop="@+id/tvA"
+        android:layout_toRightOf="@+id/tvA"
+        android:layout_toEndOf="@+id/tvA" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etPeso"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="134dp"
+        android:layout_below="@+id/etFecha"
+        android:layout_toRightOf="@+id/tvE"
+        android:layout_toEndOf="@+id/tvE" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etFecha"
+        android:inputType="date"
+        android:layout_alignBaseline="@+id/tvF"
+        android:layout_alignBottom="@+id/tvF"
+        android:layout_toRightOf="@+id/tvF"
+        android:layout_toEndOf="@+id/tvF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:id="@+id/tvN"
+        android:layout_alignBottom="@+id/etNom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:id="@+id/tvE"
+        android:layout_alignBottom="@+id/etEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha Nacimiento:"
+        android:id="@+id/tvF"
+        android:textIsSelectable="false"
+        android:textSize="30dp"
+        android:layout_below="@+id/tvE"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altura:"
+        android:id="@+id/tvA"
+        android:textSize="30dp"
+        android:layout_below="@+id/etFecha"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peso:"
+        android:id="@+id/tvP"
+        android:textIsSelectable="false"
+        android:textSize="30dp"
+        android:layout_alignBottom="@+id/etPeso"
+        android:layout_alignRight="@+id/tvE"
+        android:layout_alignEnd="@+id/tvE" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kg"
+        android:id="@+id/tvKg"
+        android:layout_alignBottom="@+id/tvP"
+        android:layout_toRightOf="@+id/tvN"
+        android:layout_toEndOf="@+id/tvN"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cm"
+        android:id="@+id/tvCm"
+        android:layout_alignBottom="@+id/tvA"
+        android:layout_toRightOf="@+id/etAltura"
+        android:layout_toEndOf="@+id/etAltura"
+        android:textSize="25dp" />
+
+</RelativeLayout>

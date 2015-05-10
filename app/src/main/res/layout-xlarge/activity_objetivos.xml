@@ -8,36 +8,37 @@
 
 
     <ImageButton
-        android:layout_width="140dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/bDeportes"
         android:src="@drawable/football"
-        android:layout_marginTop="61dp"
         android:contentDescription="@string/content_deportes"
         android:adjustViewBounds="false"
         android:onClick="abreVistaImpresion"
-        android:layout_below="@+id/tDeportes"
+        android:layout_marginBottom="95dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignBottom="@+id/tSalud"
         android:layout_toLeftOf="@+id/tSalud"
         android:layout_toStartOf="@+id/tSalud" />
     <ImageButton
-        android:layout_width="140dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/bFitness"
         android:src="@drawable/gym"
         android:contentDescription="@string/content_fitness"
         android:onClick="abreVistaImpresion"
         android:layout_alignTop="@+id/bDeportes"
-        android:layout_toRightOf="@+id/tDeportes"
-        android:layout_toEndOf="@+id/tDeportes" />
+        android:layout_toRightOf="@+id/tSalud"
+        android:layout_toEndOf="@+id/tSalud" />
     <ImageButton
-        android:layout_width="160dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/bSalud"
         android:src="@drawable/salud"
         android:contentDescription="@string/content_salud"
         android:onClick="abreVistaImpresion"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/bDeportes"
+        android:layout_marginBottom="403dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -46,9 +47,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tDeportes"
         android:text="@string/texto_deportes"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/tSalud"
-        android:layout_alignEnd="@+id/tSalud" />
+        android:layout_above="@+id/bDeportes"
+        android:layout_alignRight="@+id/bDeportes"
+        android:layout_alignEnd="@+id/bDeportes"
+        android:layout_marginRight="55dp"
+        android:layout_marginEnd="55dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,8 +67,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tFitness"
         android:text="@string/texto_fitness"
-        android:layout_above="@+id/tDeportes"
-        android:layout_alignLeft="@+id/bFitness"
-        android:layout_alignStart="@+id/bFitness"
-        android:layout_marginLeft="35dp"/>
+        android:layout_above="@+id/bFitness"
+        android:layout_toRightOf="@+id/bSalud"
+        android:layout_toEndOf="@+id/bSalud" />
 </RelativeLayout>

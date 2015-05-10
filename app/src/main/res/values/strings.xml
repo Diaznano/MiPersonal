@@ -8,7 +8,7 @@
     <string name="hint_fecha">Fecha de Nacimiento (Ej. 10/06/1987)</string>
     <string name="hint_peso">Peso</string>
     <string name="hint_altura">Altura</string>
-    <string name="hint_dni">DNI</string>
+    <string name="hint_dni">DNI (Sin . )</string>
     <string name="boton_siguiente">Siguiente</string>
     <string name="content_salud">Quiero Salud!</string>
     <string name="content_fitness">Quiero Fitness!</string>

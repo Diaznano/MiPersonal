@@ -7,27 +7,27 @@
     tools:context="com.eci.mipersonaltrainer.ImpresionActivity">
 
     <Button
-        android:layout_width="280dp"
-        android:layout_height="120dp"
+        android:layout_width="300dp"
+        android:layout_height="140dp"
         android:text="@string/saca_rutina"
         android:id="@+id/bRutina"
         android:textSize="36sp"
         android:onClick="mensajeRutina"
         android:textColor="@color/accent_material_dark"
+        android:layout_marginBottom="336dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/bDieta"
-        android:layout_alignStart="@+id/bDieta"
-        android:layout_marginBottom="130dp" />
+        android:layout_alignStart="@+id/bDieta" />
 
     <Button
-        android:layout_width="280dp"
-        android:layout_height="120dp"
+        android:layout_width="300dp"
+        android:layout_height="140dp"
         android:text="@string/saca_dieta"
         android:id="@+id/bDieta"
         android:textSize="36sp"
         android:onClick="mensajeDieta"
         android:textColor="@color/accent_material_dark"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="306dp" />
+        android:layout_marginBottom="215dp"
+        android:layout_above="@+id/bRutina"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
