@@ -12,8 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class NuevoUsuarioActivity extends AppCompatActivity {
 
@@ -61,6 +63,19 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //VALIDAR FORMATO dd/mm/yyyy
+
+    public static boolean validarFecha(String fecha) {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
+
     // ------- CALCULAR EDAD --------
 
     /* public int edad(String fecha_nac){
@@ -84,7 +99,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     public void alta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        boolean b=true;
+        boolean b=true,c=true,d=true,e=true,f=true,g=true,h=true;
         String nombre = etNomApe.getText().toString();
         String dni = etDni.getText().toString();
         String email = etEmail.getText().toString();
@@ -109,7 +124,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             if(dni.length() == 0)
                 tvDni.setText("Completar DNI");
             if(email.length() == 0)
-                tvEmail.setText("Completar EMAIL");
+                tvEmail.setText("Completar EMAIL");                             //Campos vacios
             if(fecha.length() == 0)
                 tvFecha.setText("Completar FECHA");
             if(peso.length() == 0)
@@ -118,7 +133,47 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                 tvAltura.setText("Completar ALTURA");
             b=false;
         }
-        if (b==true){
+
+        if (nombre.matches("[a-z A-Z]")){
+            tvNom.setText("Nombre valido");
+        }else{                                                                  //Validacion de Nombre y Apellido
+            tvNom.setText("Nombre Invalido");
+            e=false;
+        }
+        if(dni.matches("[0-9]") && (dni.length() <10 && dni.length() >6)){
+            tvDni.setText("DNI Correcto");
+        }else{                                                                  //Validacion de DNI
+            tvDni.setText("DNI Incorrecto");
+            d=false;
+        }
+        if(email.matches("[a-zA-Z0-9._-]+@[a-z]+\\\\.[a-z]+") && email.length() > 0){
+            tvEmail.setText("E-mail Valido");
+
+        }else {                                                                 //Validacion de E-Mail
+            tvEmail.setText("E-mail Invalido");
+            c=false;
+        }
+        if(validarFecha(fecha)){
+            tvFecha.setText("Fecha Valida");
+        }else{                                                                  //Validacion formato fecha
+            tvFecha.setText("Fecha Invalida");
+            f=false;
+        }
+        if((altura.length() == 3 || altura.length() == 2) && altura.matches("[0-9]")){
+            tvAltura.setText("Altura Valida");
+        }else{                                                                  //Validacion Altura
+            tvAltura.setText("Altura Invalida");
+            g=false;
+        }
+        if((peso.length() == 3 || peso.length() == 2) && peso.matches("[0-9]")){
+            tvPeso.setText("Peso Valido");
+        }else{                                                                  //Validacion Peso
+            tvPeso.setText("Peso Invalido");
+            h=false;
+        }
+
+
+        if (b==true && c==true && d==true && e==true && f==true && g==true && h==true){
         try
         {
             etNomApe.setText("");
