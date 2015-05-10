@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/fitness2"
+    >
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_registrado"
+        android:layout_marginTop="310dp"
+        android:id="@+id/bRegistrado"
+        android:alpha="0.8"
+        android:background="#009ffb"
+        android:onClick="abreVistaUsuarioYaRegistrado"
+        android:layout_alignRight="@+id/bNuevoUsuario"
+        android:layout_alignEnd="@+id/bNuevoUsuario"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_nuevo_usuario"
+        android:id="@+id/bNuevoUsuario"
+        android:layout_marginTop="260dp"
+        android:background="#009ffb"
+        android:alpha="0.8"
+        android:onClick="abreVistaNuevoUsuario"
+        android:layout_centerVertical="true"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
