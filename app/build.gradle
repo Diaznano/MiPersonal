@@ -24,4 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'org.roboguice:roboguice:3.0.1'
     provided 'org.roboguice:roboblender:3.0.1'
+    compile 'info.hoang8f:fbutton:1.0.5'
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
 }
