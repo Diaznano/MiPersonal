@@ -22,7 +22,6 @@
         fbutton:shadowColor="@color/fbutton_color_midnight_blue"
         android:layout_marginTop="300dp"
         android:onClick="mensajeRutina"
-        android:textStyle="bold"
         android:textSize="26sp" />
 
     <info.hoang8f.widget.FButton
@@ -38,5 +37,5 @@
         android:layout_marginTop="450dp"
         android:onClick="mensajeDieta"
         android:textSize="26sp"
-        android:textStyle="bold" />
+         />
 </RelativeLayout>

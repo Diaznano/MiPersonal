@@ -34,8 +34,7 @@
         fbutton:cornerRadius="5dp"
         fbutton:shadowColor="@color/fbutton_color_midnight_blue"
         android:layout_marginTop="280dp"
-        android:onClick="abreVistaNuevoUsuario"
-        android:textStyle="bold" />
+        android:onClick="abreVistaNuevoUsuario" />
 
 
 </RelativeLayout>
