@@ -101,7 +101,8 @@
         android:id="@+id/tvKg"
         android:layout_alignBottom="@+id/etPeso"
         android:layout_toRightOf="@+id/etPeso"
-        android:layout_toEndOf="@+id/etPeso" />
+        android:layout_toEndOf="@+id/etPeso"
+        android:textSize="10sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -111,62 +112,9 @@
         android:id="@+id/tvCm"
         android:layout_alignBottom="@+id/etAltura"
         android:layout_toRightOf="@+id/etAltura"
-        android:layout_toEndOf="@+id/etAltura" />
+        android:layout_toEndOf="@+id/etAltura"
+        android:textSize="10sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/tvNombre"
-        android:layout_alignBottom="@+id/etNom"
-        android:layout_toRightOf="@+id/etNom"
-        android:layout_toEndOf="@+id/etNom"
-        android:enabled="false" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/tvEma"
-        android:layout_alignBottom="@+id/etEmail"
-        android:layout_alignLeft="@+id/tvNombre"
-        android:layout_alignStart="@+id/tvNombre" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/tvDNI"
-        android:layout_alignBottom="@+id/etDni"
-        android:layout_toRightOf="@+id/etDni"
-        android:layout_toEndOf="@+id/etDni" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/tvFecha"
-        android:layout_alignBaseline="@+id/etFecha"
-        android:layout_alignBottom="@+id/etFecha"
-        android:layout_alignLeft="@+id/tvDNI"
-        android:layout_alignStart="@+id/tvDNI" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/tvAltura"
-        android:layout_alignBottom="@+id/tvCm"
-        android:layout_toRightOf="@+id/tvCm"
-        android:layout_toEndOf="@+id/tvCm" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/tvPeso"
-        android:layout_alignBottom="@+id/tvKg"
-        android:layout_toRightOf="@+id/tvKg"
-        android:layout_toEndOf="@+id/tvKg" />
 
 </RelativeLayout>
