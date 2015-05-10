@@ -40,9 +40,11 @@ public class ImpresionActivity extends AppCompatActivity {
     public void mensajeRutina(View view){
         Toast t1 = Toast.makeText(this,"Imprimiendo rutina.. dirigirse a recepción",Toast.LENGTH_LONG);
         t1.show();
+        view.setEnabled(false);
     }
     public void mensajeDieta(View view){
         Toast t2 = Toast.makeText(this,"Imprimiendo dieta.. dirigirse a recepción",Toast.LENGTH_LONG);
         t2.show();
+        view.setEnabled(false);
     }
 }

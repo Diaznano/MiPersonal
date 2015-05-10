@@ -1,6 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -8,37 +10,40 @@
 
 
     <ImageButton
-        android:layout_width="170dp"
-        android:layout_height="180dp"
+        android:layout_width="360dp"
+        android:layout_height="150dp"
         android:id="@+id/bDeportes"
         android:src="@drawable/football"
+        android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_deportes"
         android:adjustViewBounds="false"
         android:onClick="abreVistaImpresion"
-        android:layout_marginTop="245dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/bSalud"
-        android:layout_toStartOf="@+id/bSalud" />
+        android:layout_below="@+id/tDeportes"
+        android:layout_centerHorizontal="true" />
     <ImageButton
-        android:layout_width="170dp"
-        android:layout_height="180dp"
+        android:layout_width="360dp"
+        android:layout_height="150dp"
         android:id="@+id/bFitness"
         android:src="@drawable/gym"
+        android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_fitness"
         android:onClick="abreVistaImpresion"
-        android:layout_above="@+id/bSalud"
-        android:layout_toRightOf="@+id/bSalud"
-        android:layout_toEndOf="@+id/bSalud" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
     <ImageButton
-        android:layout_width="170dp"
-        android:layout_height="180dp"
+        android:layout_width="360dp"
+        android:layout_height="150dp"
         android:id="@+id/bSalud"
         android:src="@drawable/salud"
+        android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_salud"
         android:onClick="abreVistaImpresion"
-        android:layout_marginTop="73dp"
-        android:layout_below="@+id/bDeportes"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/bFitness"
+        android:layout_alignStart="@+id/bFitness" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,21 +51,18 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tDeportes"
         android:text="@string/texto_deportes"
-        android:layout_above="@+id/bFitness"
-        android:layout_alignLeft="@+id/bDeportes"
-        android:layout_alignStart="@+id/bDeportes"
-        android:textSize="35dp" />
+        android:layout_marginTop="64dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tSalud"
         android:text="@string/texto_salud"
-        android:layout_alignTop="@+id/bSalud"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-30dp"
-        android:textIsSelectable="false"
-        android:textSize="35dp" />
+        android:layout_above="@+id/bSalud"
+        android:layout_alignRight="@+id/tFitness"
+        android:layout_alignEnd="@+id/tFitness" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +70,6 @@
         android:id="@+id/tFitness"
         android:text="@string/texto_fitness"
         android:layout_above="@+id/bFitness"
-        android:layout_alignLeft="@+id/bFitness"
-        android:layout_alignStart="@+id/bFitness"
-        android:textSize="35dp" />
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>

@@ -17,6 +17,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import info.hoang8f.widget.FButton;
+
 public class NuevoUsuarioActivity extends AppCompatActivity {
 
     private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
@@ -175,7 +177,6 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                 etPeso.setHint("Peso Invalido");
                 h = false;
             }    }
-
 
         if (b==true && c==true && d==true && e==true && f==true && g==true && h==true){
         try
