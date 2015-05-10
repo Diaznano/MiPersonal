@@ -8,40 +8,37 @@
 
 
     <ImageButton
-        android:layout_width="140dp"
-        android:layout_height="150dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
         android:id="@+id/bDeportes"
         android:src="@drawable/football"
+        android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_deportes"
         android:adjustViewBounds="false"
-        android:background="@color/fbutton_color_turquoise"
         android:onClick="abreVistaImpresion"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="88dp" />
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true" />
     <ImageButton
-        android:layout_width="140dp"
-        android:layout_height="150dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
         android:id="@+id/bFitness"
         android:src="@drawable/gym"
         android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_fitness"
         android:onClick="abreVistaImpresion"
-        android:layout_alignTop="@+id/bDeportes"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
     <ImageButton
-        android:layout_width="160dp"
-        android:layout_height="150dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
         android:id="@+id/bSalud"
         android:src="@drawable/salud"
         android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_salud"
         android:onClick="abreVistaImpresion"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/bDeportes"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="400dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,25 +46,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tDeportes"
         android:text="@string/texto_deportes"
-        android:layout_above="@+id/bFitness"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@id/bDeportes" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tSalud"
         android:text="@string/texto_salud"
-        android:layout_alignTop="@+id/bSalud"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-30dp"/>
+        android:layout_alignTop="@+id/bSalud"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tFitness"
         android:text="@string/texto_fitness"
-        android:layout_alignTop="@+id/tDeportes"
-        android:layout_toRightOf="@+id/bSalud"
-        android:layout_toEndOf="@+id/bSalud" />
+        android:layout_alignTop="@id/bFitness" />
 </RelativeLayout>
