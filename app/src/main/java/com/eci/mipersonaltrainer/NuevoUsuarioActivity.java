@@ -18,15 +18,19 @@ import java.util.Date;
 import java.util.Locale;
 
 import info.hoang8f.widget.FButton;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
+@ContentView(R.layout.activity_nuevo_usuario)
 
-public class NuevoUsuarioActivity extends AppCompatActivity {
+public class NuevoUsuarioActivity extends RoboActivity {
 
     private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nuevo_usuario);
         etNomApe = (EditText)findViewById(R.id.etNom);
         etAltura = (EditText)findViewById(R.id.etAltura);
         etPeso = (EditText)findViewById(R.id.etPeso);
@@ -181,24 +185,6 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         if (b==true && c==true && d==true && e==true && f==true && g==true && h==true){
         try
         {
-            etNomApe.setText("");
-            etDni.setText("");
-            etFecha.setText("");
-            etPeso.setText("");
-            etAltura.setText("");
-            etEmail.setText("");
-            etNomApe.setHint("Nombre y Apellido");
-            etEmail.setHint("Email");
-            etPeso.setHint("Peso");
-            etAltura.setHint("Altura");
-            etFecha.setHint("Fecha de Nacimiento (Ej. 10/06/1987)");
-            etDni.setHint("DNI (Sin .)");
-            /*tvAltura.setText("");
-            tvPeso.setText("");
-            tvEmail.setText("");
-            tvDni.setText("");
-            tvFecha.setText("");
-            tvNom.setText("");*/
             Intent i = new Intent(this, ObjetivosActivity.class );
             startActivity(i);
             Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();

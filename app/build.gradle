@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.eci.mipersonaltrainer"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 16
         versionCode 1
         versionName "1.0"
     }
@@ -26,4 +26,6 @@ dependencies {
     provided 'org.roboguice:roboblender:3.0.1'
     compile 'info.hoang8f:fbutton:1.0.5'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+    compile 'com.beardedhen:androidbootstrap:+'
+
 }
