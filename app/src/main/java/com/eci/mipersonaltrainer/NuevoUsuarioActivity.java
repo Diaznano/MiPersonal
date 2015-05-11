@@ -185,24 +185,6 @@ public class NuevoUsuarioActivity extends RoboActivity {
         if (b==true && c==true && d==true && e==true && f==true && g==true && h==true){
         try
         {
-            etNomApe.setText("");
-            etDni.setText("");
-            etFecha.setText("");
-            etPeso.setText("");
-            etAltura.setText("");
-            etEmail.setText("");
-            etNomApe.setHint("Nombre y Apellido");
-            etEmail.setHint("Email");
-            etPeso.setHint("Peso");
-            etAltura.setHint("Altura");
-            etFecha.setHint("Fecha de Nacimiento (Ej. 10/06/1987)");
-            etDni.setHint("DNI (Sin .)");
-            /*tvAltura.setText("");
-            tvPeso.setText("");
-            tvEmail.setText("");
-            tvDni.setText("");
-            tvFecha.setText("");
-            tvNom.setText("");*/
             Intent i = new Intent(this, ObjetivosActivity.class );
             startActivity(i);
             Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();
