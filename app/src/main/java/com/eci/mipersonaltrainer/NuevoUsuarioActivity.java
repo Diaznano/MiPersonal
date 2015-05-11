@@ -25,18 +25,18 @@ import roboguice.inject.InjectView;
 
 public class NuevoUsuarioActivity extends RoboActivity {
 
-    private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
+    private com.beardedhen.androidbootstrap.BootstrapEditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        etNomApe = (EditText)findViewById(R.id.etNom);
-        etAltura = (EditText)findViewById(R.id.etAltura);
-        etPeso = (EditText)findViewById(R.id.etPeso);
-        etEmail = (EditText)findViewById(R.id.etEmail);
-        etFecha = (EditText)findViewById(R.id.etFecha);
-        etDni = (EditText)findViewById(R.id.etDni);
+        etNomApe = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etNom);
+        etAltura = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etAltura);
+        etPeso = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etPeso);
+        etEmail = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etEmail);
+        etFecha = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etFecha);
+        etDni = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etDni);
 
     }
 
@@ -119,26 +119,32 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 || peso.length() == 0 || altura.length() == 0) {
             Toast.makeText(this, "Debe completrar los campos faltantes", Toast.LENGTH_SHORT).show();
             if (nombre.length() == 0) {
+                etNomApe.setDanger();
                 etNomApe.setHint("Completar NOMBRE");
                 e=false;
             }
             if (dni.length() == 0) {
+                etDni.setDanger();
                 etDni.setHint("Completar DNI");
                 d=false;
             }
             if (email.length() == 0) {
+                etEmail.setDanger();
                 etEmail.setHint("Completar E-MAIL");
                 c=false;
             }
             if (fecha.length() == 0) {
+                etFecha.setDanger();
                 etFecha.setHint("Completar FECHA");
                 f=false;
             }
             if (peso.length() == 0) {
+                etPeso.setDanger();
                 etPeso.setHint("Completar PESO");
                 h=false;
             }
             if (altura.length() == 0) {
+                etAltura.setDanger();
                 etAltura.setHint("Completar ALTURA");
                 g=false;
             }
@@ -148,36 +154,42 @@ public class NuevoUsuarioActivity extends RoboActivity {
             if (nombre.matches("[a-z A-Z]*") && e==true) {
             } else {
                 etNomApe.setText("");
+                etNomApe.setDanger();
                 etNomApe.setHint("Nombre invalido");
                 e = false;
             }
             if (dni.matches("[0-9]*") && (dni.length() < 10 && dni.length() > 6) && d == true) {
             } else {                                                                  //Validacion de DNI
                 etDni.setHint("DNI Invalido");
+                etDni.setDanger();
                 etDni.setText("");
                 d = false;
             }
             if (email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") && email.length() > 0 && c == true) {
             } else {                                                                 //Validacion de E-Mail
                 etEmail.setHint("E-MAIL invalido");
+                etEmail.setDanger();
                 etEmail.setText("");
                 c = false;
             }
             if (validarFecha(fecha) && f == true) {
             } else {                                                                  //Validacion formato fecha
                 etFecha.setText("");
+                etFecha.setDanger();
                 etFecha.setHint("Fecha Invalida");
                 f = false;
             }
             if ((altura.length() == 3 || altura.length() == 2) && altura.matches("[0-9]*") && g == true) {
               } else {                                                                  //Validacion Altura
                 etAltura.setText("");
+                etAltura.setDanger();
                 etAltura.setHint("Altura Invalida");
                 g = false;
             }
             if ((peso.length() == 3 || peso.length() == 2) && peso.matches("[0-9]*") && h == true) {
             } else {                                                                  //Validacion Peso
                 etPeso.setText("");
+                etPeso.setDanger();
                 etPeso.setHint("Peso Invalido");
                 h = false;
             }    }
