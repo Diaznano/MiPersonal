@@ -18,15 +18,19 @@ import java.util.Date;
 import java.util.Locale;
 
 import info.hoang8f.widget.FButton;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
+@ContentView(R.layout.activity_nuevo_usuario)
 
-public class NuevoUsuarioActivity extends AppCompatActivity {
+public class NuevoUsuarioActivity extends RoboActivity {
 
     private EditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nuevo_usuario);
         etNomApe = (EditText)findViewById(R.id.etNom);
         etAltura = (EditText)findViewById(R.id.etAltura);
         etPeso = (EditText)findViewById(R.id.etPeso);

@@ -24,4 +24,10 @@
     <string name="title_activity_usuario_ya_registrado">Ingreso</string>
     <string name="hint_busqueda_dni">Ingresá tu DNI</string>
     <string name="btn_buscar">Buscar</string>
+    <string name="text_nombre">Nombre:</string>
+    <string name="text_email">Email:</string>
+    <string name="text_peso">Peso:</string>
+    <string name="text_altura">Altura:</string>
+    <string name="text_fecha">Fecha Nacimiento:</string>
+    <string name="boton_guardar_cambios">Guardar Cambios</string>
 </resources>
