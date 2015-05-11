@@ -38,11 +38,15 @@ public class ImpresionActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void mensajeRutina(View view){
+        /*bd.insert("usuarios", null, registro);
+        bd.close();*/
         Toast t1 = Toast.makeText(this,"Imprimiendo rutina.. dirigirse a recepción",Toast.LENGTH_LONG);
         t1.show();
         view.setEnabled(false);
     }
     public void mensajeDieta(View view){
+        /*bd.insert("usuarios", null, registro);
+        bd.close();*/
         Toast t2 = Toast.makeText(this,"Imprimiendo dieta.. dirigirse a recepción",Toast.LENGTH_LONG);
         t2.show();
         view.setEnabled(false);

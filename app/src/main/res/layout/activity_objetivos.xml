@@ -36,7 +36,7 @@
         android:src="@drawable/salud"
         android:background="@color/fbutton_color_turquoise"
         android:contentDescription="@string/content_salud"
-        android:onClick="abreVistaImpresion"
+        android:onClick="Salud"
         android:layout_marginTop="400dp"
         />
 

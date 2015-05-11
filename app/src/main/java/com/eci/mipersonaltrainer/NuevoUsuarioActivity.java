@@ -106,15 +106,9 @@ public class NuevoUsuarioActivity extends RoboActivity {
         // int a = edad(fecha); CALCULO EDAD
         String peso = etPeso.getText().toString();
         String altura = etAltura.getText().toString();
-        /*ContentValues registro = new ContentValues();
-        registro.put("nombre", nombre);
-        registro.put("dni", dni);
-        registro.put("fechaNac", fecha);
-        registro.put("peso", peso);
-        registro.put("altura", altura);
-        registro.put("email", email);
-        bd.insert("usuarios", null, registro);
-        bd.close();*/ //*********Pasar como parametro el registro al siguiente activity y guardar en la base de datos con el objetivo
+        ContentValues registro = new ContentValues();
+
+
         if(nombre.length() == 0 || dni.length() == 0 || email.length() == 0 || fecha.length() == 0
                 || peso.length() == 0 || altura.length() == 0) {
             Toast.makeText(this, "Debe completrar los campos faltantes", Toast.LENGTH_SHORT).show();
@@ -144,48 +138,55 @@ public class NuevoUsuarioActivity extends RoboActivity {
             }
             b=false;
             }
-        if (b==true){
-            if (nombre.matches("[a-z A-Z]*") && e==true) {
-            } else {
+        if (b){
+            if (!nombre.matches("[a-z A-Z]*") || e != true) {
                 etNomApe.setText("");
                 etNomApe.setHint("Nombre invalido");
                 e = false;
             }
-            if (dni.matches("[0-9]*") && (dni.length() < 10 && dni.length() > 6) && d == true) {
-            } else {                                                                  //Validacion de DNI
+            if (!dni.matches("[0-9]*") || (dni.length() >= 10 || dni.length() <= 6) || d != true) {                                                                  //Validacion de DNI
                 etDni.setHint("DNI Invalido");
                 etDni.setText("");
                 d = false;
             }
-            if (email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") && email.length() > 0 && c == true) {
-            } else {                                                                 //Validacion de E-Mail
+            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") || email.length() <= 0 || c != true) {                                                                 //Validacion de E-Mail
                 etEmail.setHint("E-MAIL invalido");
                 etEmail.setText("");
                 c = false;
             }
-            if (validarFecha(fecha) && f == true) {
-            } else {                                                                  //Validacion formato fecha
+            if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
                 etFecha.setText("");
                 etFecha.setHint("Fecha Invalida");
                 f = false;
             }
-            if ((altura.length() == 3 || altura.length() == 2) && altura.matches("[0-9]*") && g == true) {
-              } else {                                                                  //Validacion Altura
-                etAltura.setText("");
-                etAltura.setHint("Altura Invalida");
-                g = false;
-            }
-            if ((peso.length() == 3 || peso.length() == 2) && peso.matches("[0-9]*") && h == true) {
-            } else {                                                                  //Validacion Peso
+            if ((altura.length() != 3 && altura.length() != 2) || !altura.matches("[0-9]*") || g != true) {                                                                  //Validacion Altura
+              etAltura.setText("");
+              etAltura.setHint("Altura Invalida");
+              g = false;
+          }
+            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || h != true) {                                                                  //Validacion Peso
                 etPeso.setText("");
                 etPeso.setHint("Peso Invalido");
                 h = false;
-            }    }
+            }
+        }
 
-        if (b==true && c==true && d==true && e==true && f==true && g==true && h==true){
+        if (b && c && d && e && f && g && h){
         try
         {
+            /*registro.put("nombre", nombre);
+            registro.put("dni", dni);
+            registro.put("fechaNac", fecha);
+            registro.put("peso", peso);
+            registro.put("altura", altura);
+            registro.put("email", email);*/
             Intent i = new Intent(this, ObjetivosActivity.class );
+            i.putExtra("nombre",nombre);
+            i.putExtra("dni",dni);
+            i.putExtra("fechaNac",fecha);
+            i.putExtra("peso",peso);
+            i.putExtra("altura", altura);
+            i.putExtra("email", email);
             startActivity(i);
             Toast.makeText(this, "Operación exitosa",Toast.LENGTH_SHORT).show();
     } catch(Exception ex){
