@@ -106,7 +106,6 @@ public class NuevoUsuarioActivity extends RoboActivity {
         // int a = edad(fecha); CALCULO EDAD
         String peso = etPeso.getText().toString();
         String altura = etAltura.getText().toString();
-        ContentValues registro = new ContentValues();
 
 
         if(nombre.length() == 0 || dni.length() == 0 || email.length() == 0 || fecha.length() == 0
@@ -169,24 +168,15 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 etFecha.setHint("Fecha Invalida");
                 f = false;
             }
-<<<<<<< HEAD
-            if ((altura.length() == 3 || altura.length() == 2) && altura.matches("[0-9]*") && g == true) {
-              } else {                                                                  //Validacion Altura
-                etAltura.setText("");
-                etAltura.setDanger();
-                etAltura.setHint("Altura Invalida");
-                g = false;
-            }
-            if ((peso.length() == 3 || peso.length() == 2) && peso.matches("[0-9]*") && h == true) {
-            } else {                                                                  //Validacion Peso
-=======
             if ((altura.length() != 3 && altura.length() != 2) || !altura.matches("[0-9]*") || g != true) {                                                                  //Validacion Altura
               etAltura.setText("");
+              etAltura.setDanger();
               etAltura.setHint("Altura Invalida");
               g = false;
-          }
+            }
+
             if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || h != true) {                                                                  //Validacion Peso
->>>>>>> 7d62f38e79ad52d41aac555ca920666c60a0ce28
+
                 etPeso.setText("");
                 etPeso.setDanger();
                 etPeso.setHint("Peso Invalido");
@@ -194,15 +184,9 @@ public class NuevoUsuarioActivity extends RoboActivity {
             }
         }
 
-        if (b && c && d && e && f && g && h){
+            if (b && c && d && e && f && g && h){
         try
         {
-            /*registro.put("nombre", nombre);
-            registro.put("dni", dni);
-            registro.put("fechaNac", fecha);
-            registro.put("peso", peso);
-            registro.put("altura", altura);
-            registro.put("email", email);*/
             Intent i = new Intent(this, ObjetivosActivity.class );
             i.putExtra("nombre",nombre);
             i.putExtra("dni",dni);

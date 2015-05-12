@@ -2,6 +2,7 @@ package com.eci.mipersonaltrainer;
 
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +14,10 @@ import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
@@ -62,6 +67,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String dni = eDni.getText().toString();
+        try{
         Cursor fila = bd.rawQuery(
                 "select nombre,fechaNac,peso,altura,email from usuarios where dni=" + dni, null);
         if (fila.moveToFirst()) {
@@ -76,10 +82,26 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             Toast.makeText(this, "No existe un usuario con dicho DNI",
                     Toast.LENGTH_SHORT).show();
         bd.close();
+        }catch(Exception ex){
+            Toast.makeText(this,"Error debe ingresar un DNI",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public static boolean validarFecha(String fecha) {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
     }
     public void modificacion(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
+        boolean b=true,c=true,d=true,e=true,f=true,g=true,h=true;
         String dni = eDni.getText().toString();
         String nom = eNom.getText().toString();
         String fecha = eFecha.getText().toString();
@@ -87,21 +109,72 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         String alt = eAlt.getText().toString();
         String email = eEmail.getText().toString();
         ContentValues registro = new ContentValues();
-        registro.put("nombre", nom);
-        registro.put("dni", dni);
-        registro.put("fechaNac", fecha);
-        registro.put("peso", peso);
-        registro.put("altura", alt);
-        registro.put("email", email);
-        int cant = bd.update("usuarios", registro, "dni=" + dni, null);
-        bd.close();
-        if (cant == 1)
-            Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT)
-                    .show();
-        else
-            Toast.makeText(this, "Surgió un error",
-                    Toast.LENGTH_SHORT).show();
+
+
+        if(dni.length() != 0) {
+            if (!nom.matches("[a-z A-Z]*") || e != true) {
+                eNom.setText("");
+                //eNom.setDanger();
+                eNom.setHint("Nombre invalido");
+                e = false;
+            }
+            if (!dni.matches("[0-9]*") || (dni.length() >= 10 || dni.length() <= 6) || d != true) {                                                                  //Validacion de DNI
+                eDni.setHint("DNI Invalido");
+                //eDni.setDanger();
+                eDni.setText("");
+                d = false;
+            }
+            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") || email.length() <= 0 || c != true) {                                                                 //Validacion de E-Mail
+                eEmail.setHint("E-MAIL invalido");
+                //eEmail.setDanger();
+                eEmail.setText("");
+                c = false;
+            }
+            if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
+                eFecha.setText("");
+                //eFecha.setDanger();
+                eFecha.setHint("Fecha Invalida");
+                f = false;
+            }
+            if ((alt.length() != 3 && alt.length() != 2) || !alt.matches("[0-9]*") || g != true) {                                                                  //Validacion Altura
+                eAlt.setText("");
+                //eAlt.setDanger();
+                eAlt.setHint("Altura Invalida");
+                g = false;
+            }
+
+            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || h != true) {                                                                  //Validacion Peso
+
+                ePeso.setText("");
+                //ePeso.setDanger();
+                ePeso.setHint("Peso Invalido");
+                h = false;
+            }
+        }else{
+            Toast.makeText(this,"Debe ingresar un DNI",Toast.LENGTH_SHORT).show();
+        }
+
+    if (c && d && e && f && g && h){
+        try
+        {   registro.put("nombre", nom);
+            registro.put("dni", dni);
+            registro.put("fechaNac", fecha);
+            registro.put("peso", peso);
+            registro.put("altura", alt);
+            registro.put("email", email);
+            int cant = bd.update("usuarios", registro, "dni=" + dni, null);
+            bd.close();
+            if (cant == 1)
+                Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT)
+                        .show();
+            else
+                Toast.makeText(this, "Surgió un error",
+                        Toast.LENGTH_SHORT).show();
+        } catch(Exception ex){
+            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+        }
     }
+}
 
 }
 
