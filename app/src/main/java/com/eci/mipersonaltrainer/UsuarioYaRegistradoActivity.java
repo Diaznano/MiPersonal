@@ -25,20 +25,20 @@ import roboguice.inject.InjectView;
 
 @ContentView(R.layout.activity_usuario_ya_registrado)
 public class UsuarioYaRegistradoActivity extends RoboActivity {
+    private com.beardedhen.androidbootstrap.BootstrapEditText eDni,eNom,eAlt,ePeso,eFecha,eEmail;
 
-
-    @InjectView(R.id.etDni) EditText eDni;
-    @InjectView(R.id.etNom) EditText eNom;
-    @InjectView(R.id.etAltura) EditText eAlt;
-    @InjectView(R.id.etPeso) EditText ePeso;
-    @InjectView(R.id.etFecha) EditText eFecha;
-    @InjectView(R.id.etEmail) EditText eEmail;
     @InjectView(R.id.tvKg) TextView tvKg;
     @InjectView(R.id.tvCm) TextView tvCm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        eDni = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etDni);
+        eNom = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etNom);
+        eAlt = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etAltura);
+        ePeso = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etPeso);
+        eFecha = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etFecha);
+        eEmail = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etEmail);
     }
 
     @Override
@@ -67,6 +67,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String dni = eDni.getText().toString();
+
         try{
         Cursor fila = bd.rawQuery(
                 "select nombre,fechaNac,peso,altura,email from usuarios where dni=" + dni, null);
@@ -78,9 +79,21 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             eEmail.setText(fila.getString(4));
             tvCm.setVisibility(View.VISIBLE);
             tvKg.setVisibility(View.VISIBLE);
-        } else
+            eNom.setEnabled(false);
+            eFecha.setEnabled(false);
+        } else{
             Toast.makeText(this, "No existe un usuario con dicho DNI",
                     Toast.LENGTH_SHORT).show();
+            eNom.setText("");
+            eFecha.setText("");
+            ePeso.setText("");
+            eAlt.setText("");
+            eEmail.setText("");
+            tvCm.setVisibility(View.INVISIBLE);
+            tvKg.setVisibility(View.INVISIBLE);
+            eNom.setEnabled(true);
+            eFecha.setEnabled(true);
+        }
         bd.close();
         }catch(Exception ex){
             Toast.makeText(this,"Error debe ingresar un DNI",Toast.LENGTH_SHORT).show();
@@ -88,7 +101,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
 
     }
 
-    public static boolean validarFecha(String fecha) {
+    /*public static boolean validarFecha(String fecha) {
         try {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
             formatoFecha.setLenient(false);
@@ -97,11 +110,11 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             return false;
         }
         return true;
-    }
+    }*/
     public void modificacion(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
-        boolean b=true,c=true,d=true,e=true,f=true,g=true,h=true;
+        boolean c=true,d=true,e=true,f=true,g=true,h=true;
         String dni = eDni.getText().toString();
         String nom = eNom.getText().toString();
         String fecha = eFecha.getText().toString();
@@ -110,43 +123,43 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         String email = eEmail.getText().toString();
         ContentValues registro = new ContentValues();
 
-
         if(dni.length() != 0) {
-            if (!nom.matches("[a-z A-Z]*") || e != true) {
+            /*if (!nom.matches("[a-z A-Z]*") || e != true) {
                 eNom.setText("");
-                //eNom.setDanger();
+                eNom.setDanger();
                 eNom.setHint("Nombre invalido");
                 e = false;
             }
-            if (!dni.matches("[0-9]*") || (dni.length() >= 10 || dni.length() <= 6) || d != true) {                                                                  //Validacion de DNI
+            */
+            if (!dni.matches("[0-9]*") || (dni.length() >= 10 || dni.length() <= 6) || !d) {                                                                  //Validacion de DNI
                 eDni.setHint("DNI Invalido");
-                //eDni.setDanger();
+                eDni.setDanger();
                 eDni.setText("");
                 d = false;
             }
-            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") || email.length() <= 0 || c != true) {                                                                 //Validacion de E-Mail
+            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") || email.length() <= 0 || !c) {                                                                 //Validacion de E-Mail
                 eEmail.setHint("E-MAIL invalido");
-                //eEmail.setDanger();
+                eEmail.setDanger();
                 eEmail.setText("");
                 c = false;
             }
-            if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
+            /*if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
                 eFecha.setText("");
-                //eFecha.setDanger();
+                eFecha.setDanger();
                 eFecha.setHint("Fecha Invalida");
                 f = false;
-            }
-            if ((alt.length() != 3 && alt.length() != 2) || !alt.matches("[0-9]*") || g != true) {                                                                  //Validacion Altura
+            }*/
+            if ((alt.length() != 3 && alt.length() != 2) || !alt.matches("[0-9]*") || !g) {                                                                  //Validacion Altura
                 eAlt.setText("");
-                //eAlt.setDanger();
+                eAlt.setDanger();
                 eAlt.setHint("Altura Invalida");
                 g = false;
             }
 
-            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || h != true) {                                                                  //Validacion Peso
+            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || !h) {                                                                  //Validacion Peso
 
                 ePeso.setText("");
-                //ePeso.setDanger();
+                ePeso.setDanger();
                 ePeso.setHint("Peso Invalido");
                 h = false;
             }
