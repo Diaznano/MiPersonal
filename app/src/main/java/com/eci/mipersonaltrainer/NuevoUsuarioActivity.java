@@ -210,6 +210,50 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 }else
                     etAltura.setDefault();
             }
+<<<<<<< HEAD
+=======
+            b=false;
+            }
+        if (b){
+            if (!nombre.matches("[a-z A-Z]*") || e != true) {
+                etNomApe.setText("");
+                etNomApe.setDanger();
+                etNomApe.setHint("Nombre invalido");
+                e = false;
+            }
+            if (!dni.matches("[0-9]*") || (dni.length() >= 10 || dni.length() <= 6) || d != true) {                                                                  //Validacion de DNI
+                etDni.setHint("DNI Invalido");
+                etDni.setDanger();
+                etDni.setText("");
+                d = false;
+            }
+            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") || email.length() <= 0 || c != true) {                                                                 //Validacion de E-Mail
+                etEmail.setHint("E-MAIL invalido");
+                etEmail.setDanger();
+                etEmail.setText("");
+                c = false;
+            }
+            if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
+                etFecha.setText("");
+                etFecha.setDanger();
+                etFecha.setHint("Fecha Invalida");
+                f = false;
+            }
+            if ((altura.length() == 3 || altura.length() == 2) && altura.matches("[0-9]*") && g == true) {
+              } else {                                                                  //Validacion Altura
+                etAltura.setText("");
+                etAltura.setDanger();
+                etAltura.setHint("Altura Invalida");
+                g = false;
+            }
+            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || h != true) {                                                                  //Validacion Peso
+                etPeso.setText("");
+                etPeso.setDanger();
+                etPeso.setHint("Peso Invalido");
+                h = false;
+            }
+        }
+>>>>>>> upstream/master
 
 
         if (c && d && e && f && g && h){
