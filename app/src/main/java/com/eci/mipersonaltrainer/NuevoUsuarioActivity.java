@@ -169,7 +169,6 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 etFecha.setHint("Fecha Invalida");
                 f = false;
             }
-<<<<<<< HEAD
             if ((altura.length() == 3 || altura.length() == 2) && altura.matches("[0-9]*") && g == true) {
               } else {                                                                  //Validacion Altura
                 etAltura.setText("");
@@ -177,16 +176,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 etAltura.setHint("Altura Invalida");
                 g = false;
             }
-            if ((peso.length() == 3 || peso.length() == 2) && peso.matches("[0-9]*") && h == true) {
-            } else {                                                                  //Validacion Peso
-=======
-            if ((altura.length() != 3 && altura.length() != 2) || !altura.matches("[0-9]*") || g != true) {                                                                  //Validacion Altura
-              etAltura.setText("");
-              etAltura.setHint("Altura Invalida");
-              g = false;
-          }
             if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || h != true) {                                                                  //Validacion Peso
->>>>>>> 7d62f38e79ad52d41aac555ca920666c60a0ce28
                 etPeso.setText("");
                 etPeso.setDanger();
                 etPeso.setHint("Peso Invalido");
