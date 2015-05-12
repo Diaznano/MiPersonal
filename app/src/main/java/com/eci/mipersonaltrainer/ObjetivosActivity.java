@@ -1,6 +1,8 @@
 package com.eci.mipersonaltrainer;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -38,6 +40,25 @@ public class ObjetivosActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void abreVistaImpresion(View view){
+        Intent intent = new Intent(this, ImpresionActivity.class);
+        startActivity(intent);
+    }
+    public void Salud(View view){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        ContentValues registro = new ContentValues();
+        Bundle bundle = getIntent().getExtras();
+
+
+        registro.put("nombre",bundle.getString("nombre"));
+        registro.put("dni",bundle.getString("dni"));
+        registro.put("fechaNac",bundle.getString("fechaNac"));
+        registro.put("peso",bundle.getString("peso"));
+        registro.put("altura",bundle.getString("peso"));
+        registro.put("email",bundle.getString("email"));
+        bd.insert("usuarios", null, registro);
+        bd.close();
         Intent intent = new Intent(this, ImpresionActivity.class);
         startActivity(intent);
     }
