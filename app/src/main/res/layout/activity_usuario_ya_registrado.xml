@@ -48,14 +48,16 @@
             bootstrap:be_roundedCorners="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:visibility="invisible"/>
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/etEmail"
             bootstrap:be_roundedCorners="true"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="24dp"
+            android:visibility="invisible"/>
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,21 +65,24 @@
             android:inputType="date"
             bootstrap:be_roundedCorners="true"
             android:layout_marginLeft="75dp"
-            android:layout_marginTop="14dp" />
+            android:layout_marginTop="14dp"
+            android:visibility="invisible"/>
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/etAltura"
             android:inputType="number"
             bootstrap:be_roundedCorners="true"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="15dp"
+            android:visibility="invisible"/>
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:id="@+id/etPeso"
             bootstrap:be_roundedCorners="true"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:visibility="invisible"/>
 
     </LinearLayout>
 

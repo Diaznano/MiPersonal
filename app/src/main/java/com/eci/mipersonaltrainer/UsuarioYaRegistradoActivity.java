@@ -79,8 +79,12 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             eEmail.setText(fila.getString(4));
             tvCm.setVisibility(View.VISIBLE);
             tvKg.setVisibility(View.VISIBLE);
-            eNom.setEnabled(false);
-            eFecha.setEnabled(false);
+            eNom.setVisibility(View.VISIBLE);
+            eFecha.setVisibility(View.VISIBLE);
+            ePeso.setVisibility(View.VISIBLE);
+            eAlt.setVisibility(View.VISIBLE);
+            eEmail.setVisibility(View.VISIBLE);
+
         } else{
             Toast.makeText(this, "No existe un usuario con dicho DNI",
                     Toast.LENGTH_SHORT).show();
@@ -91,8 +95,6 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             eEmail.setText("");
             tvCm.setVisibility(View.INVISIBLE);
             tvKg.setVisibility(View.INVISIBLE);
-            eNom.setEnabled(true);
-            eFecha.setEnabled(true);
         }
         bd.close();
         }catch(Exception ex){
@@ -101,7 +103,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
 
     }
 
-    /*public static boolean validarFecha(String fecha) {
+    public static boolean validarFecha(String fecha) {
         try {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
             formatoFecha.setLenient(false);
@@ -110,7 +112,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             return false;
         }
         return true;
-    }*/
+    }
     public void modificacion(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -124,13 +126,13 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         ContentValues registro = new ContentValues();
 
         if(dni.length() != 0) {
-            /*if (!nom.matches("[a-z A-Z]*") || e != true) {
+            if (!nom.matches("[a-z A-Z]*") || e != true) {
                 eNom.setText("");
                 eNom.setDanger();
                 eNom.setHint("Nombre invalido");
                 e = false;
             }
-            */
+
             if (!dni.matches("[0-9]*") || (dni.length() >= 10 || dni.length() <= 6) || !d) {                                                                  //Validacion de DNI
                 eDni.setHint("DNI Invalido");
                 eDni.setDanger();
@@ -143,12 +145,12 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
                 eEmail.setText("");
                 c = false;
             }
-            /*if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
+            if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
                 eFecha.setText("");
                 eFecha.setDanger();
                 eFecha.setHint("Fecha Invalida");
                 f = false;
-            }*/
+            }
             if ((alt.length() != 3 && alt.length() != 2) || !alt.matches("[0-9]*") || !g) {                                                                  //Validacion Altura
                 eAlt.setText("");
                 eAlt.setDanger();
