@@ -93,6 +93,11 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             ePeso.setText("");
             eAlt.setText("");
             eEmail.setText("");
+            eNom.setVisibility(View.INVISIBLE);
+            eFecha.setVisibility(View.INVISIBLE);
+            ePeso.setVisibility(View.INVISIBLE);
+            eAlt.setVisibility(View.INVISIBLE);
+            eEmail.setVisibility(View.INVISIBLE);
             tvCm.setVisibility(View.INVISIBLE);
             tvKg.setVisibility(View.INVISIBLE);
         }
@@ -113,6 +118,16 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         }
         return true;
     }
+
+    public void focus(final com.beardedhen.androidbootstrap.BootstrapEditText e){
+        e.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b)e.setDefault();
+            }
+        });
+    }
+
     public void modificacion(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -125,8 +140,16 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         String email = eEmail.getText().toString();
         ContentValues registro = new ContentValues();
 
+        focus(eDni);
+        focus(eNom);
+        focus(eFecha);
+        focus(ePeso);
+        focus(eAlt);
+        focus(eEmail);
         if(dni.length() != 0) {
-            if (!nom.matches("[a-z A-Z]*") || e != true) {
+            if (nom.matches("[a-z A-Z]*") && e && !nom.matches("[ ]+")) {
+                eNom.setDefault();
+            } else {
                 eNom.setText("");
                 eNom.setDanger();
                 eNom.setHint("Nombre invalido");
@@ -138,33 +161,36 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
                 eDni.setDanger();
                 eDni.setText("");
                 d = false;
-            }
+            }else eDni.setDefault();
+
             if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*.[a-z]*+") || email.length() <= 0 || !c) {                                                                 //Validacion de E-Mail
                 eEmail.setHint("E-MAIL invalido");
                 eEmail.setDanger();
                 eEmail.setText("");
                 c = false;
-            }
+            }else eEmail.setDefault();
+
             if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
                 eFecha.setText("");
                 eFecha.setDanger();
                 eFecha.setHint("Fecha Invalida");
                 f = false;
-            }
-            if ((alt.length() != 3 && alt.length() != 2) || !alt.matches("[0-9]*") || !g) {                                                                  //Validacion Altura
+            }else eFecha.setDefault();
+
+            if (Integer.parseInt(alt) > 270 || (alt.length() != 3 && alt.length() != 2) || !alt.matches("[0-9]*") || !g) {                                                                  //Validacion Altura
                 eAlt.setText("");
                 eAlt.setDanger();
                 eAlt.setHint("Altura Invalida");
                 g = false;
-            }
+            }else eAlt.setDefault();
 
-            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || !h) {                                                                  //Validacion Peso
+            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || Integer.parseInt(peso) > 600 || !h) {                                                                  //Validacion Peso
 
                 ePeso.setText("");
                 ePeso.setDanger();
                 ePeso.setHint("Peso Invalido");
                 h = false;
-            }
+            }else ePeso.setDefault();
         }else{
             Toast.makeText(this,"Debe ingresar un DNI",Toast.LENGTH_SHORT).show();
         }

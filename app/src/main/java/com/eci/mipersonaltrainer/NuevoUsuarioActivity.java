@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,7 +27,7 @@ import roboguice.inject.InjectView;
 public class NuevoUsuarioActivity extends RoboActivity {
 
     private com.beardedhen.androidbootstrap.BootstrapEditText etNomApe, etAltura, etPeso, etEmail, etFecha, etDni;
-
+    private String evalue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         etFecha = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etFecha);
         etDni = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etDni);
 
+
     }
 
     @Override
@@ -45,6 +47,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_nuevo_usuario, menu);
         return true;
+
     }
 
     @Override
@@ -109,6 +112,14 @@ public class NuevoUsuarioActivity extends RoboActivity {
         return ano;
     } */
 
+    public void focus(final com.beardedhen.androidbootstrap.BootstrapEditText e){
+        e.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b)e.setDefault();
+            }
+        });
+    }
     public void alta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
@@ -126,19 +137,27 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 || peso.length() == 0 || altura.length() == 0) {
             Toast.makeText(this, "Debe completrar los campos faltantes", Toast.LENGTH_SHORT).show();
         }
-        if (nombre.length() == 0) {
-            etNomApe.setDanger();
-            etNomApe.setHint("Completar NOMBRE");
-            e = false;
-        } else {
-            if (!nombre.matches("[a-z A-Z]*") || !e) {
-                etNomApe.setText("");
+
+        focus(etNomApe);
+        focus(etPeso);
+        focus(etAltura);
+        focus(etDni);
+        focus(etEmail);
+        focus(etFecha);
+            if (nombre.length() == 0) {
                 etNomApe.setDanger();
-                etNomApe.setHint("Nombre invalido");
+                etNomApe.setHint("Completar NOMBRE");
                 e = false;
-            } else
-                etNomApe.setDefault();
-        }
+            } else {
+                if ((nombre.matches("[a-z A-Z]*") && e) && !nombre.matches("[ ]+")) {
+                    etNomApe.setDefault();
+                } else {
+                    etNomApe.setText("");
+                    etNomApe.setDanger();
+                    etNomApe.setHint("Nombre invalido");
+                    e = false;
+                }
+            }
 
         if (dni.length() == 0) {
             etDni.setDanger();
@@ -188,7 +207,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
             etPeso.setHint("Completar PESO");
             h = false;
         } else {
-            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || !h) {                                                                  //Validacion Peso
+            if ((peso.length() != 3 && peso.length() != 2) || !peso.matches("[0-9]*") || (Integer.parseInt(peso) > 600) || !h) {                                                                  //Validacion Peso
 
                 etPeso.setText("");
                 etPeso.setDanger();
@@ -203,7 +222,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
             etAltura.setHint("Completar ALTURA");
             g = false;
         } else {
-            if ((altura.length() != 3 && altura.length() != 2) || !altura.matches("[0-9]*") || !g) {                                                                  //Validacion Altura
+            if ((altura.length() != 3 && altura.length() != 2) || !altura.matches("[0-9]*") ||(Integer.parseInt(altura) > 270) || !g) {                                                                  //Validacion Altura
                 etAltura.setText("");
                 etAltura.setDanger();
                 etAltura.setHint("Altura Invalida");
