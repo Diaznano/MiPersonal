@@ -116,7 +116,14 @@ public class NuevoUsuarioActivity extends RoboActivity {
         e.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b)e.setDefault();
+                if(b){e.setDefault();
+                    if(e == etNomApe)e.setHint("Nombre y Apellido");
+                    if(e == etAltura)e.setHint("Altura");
+                    if(e == etEmail)e.setHint("Email");
+                    if(e == etPeso)e.setHint("Peso");
+                    if(e == etDni)e.setHint("DNI Sin .");
+                    if(e == etFecha)e.setHint("Fecha de Nacimiento (Ej. 20/06/1987)");
+                }
             }
         });
     }

@@ -96,6 +96,7 @@
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="4dp"
         fbutton:cornerRadius="5dp"
+        android:enabled="false"
         fbutton:shadowColor="@color/fbutton_color_midnight_blue"
         android:onClick="modificacion"
         android:layout_alignParentBottom="true"

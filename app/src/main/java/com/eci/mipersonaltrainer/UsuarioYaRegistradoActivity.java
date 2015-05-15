@@ -26,13 +26,14 @@ import roboguice.inject.InjectView;
 @ContentView(R.layout.activity_usuario_ya_registrado)
 public class UsuarioYaRegistradoActivity extends RoboActivity {
     private com.beardedhen.androidbootstrap.BootstrapEditText eDni,eNom,eAlt,ePeso,eFecha,eEmail;
-
+    private info.hoang8f.widget.FButton boton;
     @InjectView(R.id.tvKg) TextView tvKg;
     @InjectView(R.id.tvCm) TextView tvCm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        boton = (info.hoang8f.widget.FButton)findViewById(R.id.bGuardarCambios);
         eDni = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etDni);
         eNom = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etNom);
         eAlt = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etAltura);
@@ -67,6 +68,12 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String dni = eDni.getText().toString();
+
+        modificar(eNom, this);
+        modificar(eAlt, this);
+        modificar(ePeso, this);
+        modificar(eEmail, this);
+        modificar(eFecha, this);
 
         try{
         Cursor fila = bd.rawQuery(
@@ -119,11 +126,53 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         return true;
     }
 
+    public void modificar(final com.beardedhen.androidbootstrap.BootstrapEditText e, final android.content.Context v){
+        e.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+
+                if (b) {
+                    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(v);
+                    SQLiteDatabase bd = admin.getWritableDatabase();
+                    String dni = eDni.getText().toString();
+
+                    try {
+                        Cursor fila = bd.rawQuery(
+                                "select nombre,fechaNac,peso,altura,email from usuarios where dni=" + dni, null);
+                        if (fila.moveToFirst()) {
+
+                            if (!eNom.getText().toString().equals(fila.getString(0))) boton.setEnabled(true);
+
+                            if (!eFecha.getText().toString().equals(fila.getString(1))) boton.setEnabled(true);
+
+                            if (!ePeso.getText().toString().equals(fila.getString(2))) boton.setEnabled(true);
+
+                            if (!eAlt.getText().toString().equals(fila.getString(3))) boton.setEnabled(true);
+
+                            if (!eEmail.getText().toString().equals(fila.getString(4))) boton.setEnabled(true);
+                        }
+                        bd.close();
+                    } catch (Exception ex) {
+                        //.
+                    }
+
+                }
+            }
+        });
+    }
+
     public void focus(final com.beardedhen.androidbootstrap.BootstrapEditText e){
         e.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b)e.setDefault();
+                if(b){e.setDefault();
+                    if(e == eNom)e.setHint("Nombre y Apellido");
+                    if(e == eAlt){e.setHint("Altura");}
+                    if(e == eEmail){e.setHint("Email");}
+                    if(e == ePeso){e.setHint("Peso");}
+                    if(e == eDni){e.setHint("DNI Sin .");}
+                    if(e == eFecha){e.setHint("Fecha de Nacimiento (Ej. 20/06/1987)");}
+                }
             }
         });
     }
@@ -146,6 +195,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         focus(ePeso);
         focus(eAlt);
         focus(eEmail);
+
         if(dni.length() != 0) {
             if (nom.matches("[a-z A-Z]*") && e && !nom.matches("[ ]+")) {
                 eNom.setDefault();
