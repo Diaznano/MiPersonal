@@ -26,7 +26,7 @@ import roboguice.inject.InjectView;
 @ContentView(R.layout.activity_usuario_ya_registrado)
 public class UsuarioYaRegistradoActivity extends RoboActivity {
     private com.beardedhen.androidbootstrap.BootstrapEditText eDni,eNom,eAlt,ePeso,eFecha,eEmail;
-    private info.hoang8f.widget.FButton boton;
+    private info.hoang8f.widget.FButton boton,botonC;
     @InjectView(R.id.tvKg) TextView tvKg;
     @InjectView(R.id.tvCm) TextView tvCm;
 
@@ -34,6 +34,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         boton = (info.hoang8f.widget.FButton)findViewById(R.id.bGuardarCambios);
+        botonC = (info.hoang8f.widget.FButton)findViewById(R.id.bContinuar);
         eDni = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etDni);
         eNom = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etNom);
         eAlt = (com.beardedhen.androidbootstrap.BootstrapEditText)findViewById(R.id.etAltura);
@@ -84,6 +85,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             ePeso.setText(fila.getString(2));
             eAlt.setText(fila.getString(3));
             eEmail.setText(fila.getString(4));
+            botonC.setEnabled(true);
             tvCm.setVisibility(View.VISIBLE);
             tvKg.setVisibility(View.VISIBLE);
             eNom.setVisibility(View.VISIBLE);
@@ -107,6 +109,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             eEmail.setVisibility(View.INVISIBLE);
             tvCm.setVisibility(View.INVISIBLE);
             tvKg.setVisibility(View.INVISIBLE);
+            botonC.setEnabled(false);
         }
         bd.close();
         }catch(Exception ex){
@@ -155,7 +158,6 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
                     } catch (Exception ex) {
                         //.
                     }
-
                 }
             }
         });
@@ -177,6 +179,12 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         });
     }
 
+    public void Continuar(View v){
+        if(eDni.length() != 0){
+        Intent i = new Intent(this, ImpresionActivity.class);
+        startActivity(i);
+        }
+    }
     public void modificacion(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
