@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class ObjetivosActivity extends AppCompatActivity {
@@ -59,6 +60,8 @@ public class ObjetivosActivity extends AppCompatActivity {
         registro.put("email",bundle.getString("email"));
         bd.insert("usuarios", null, registro);
         bd.close();
+
+        Toast.makeText(this, "Operación exitosa", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, ImpresionActivity.class);
         startActivity(intent);
     }

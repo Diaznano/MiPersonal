@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import roboguice.activity.RoboActivity;
@@ -128,6 +129,19 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
         }
         return true;
     }
+    public static boolean validacion(String fecha) {
+
+        Date fechaActual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String hoy = formato.format(fechaActual);
+        String[] dat1 = fecha.split("/");
+        String[] dat2 = hoy.split("/");
+        int ano = Integer.parseInt(dat2[2]) - Integer.parseInt(dat1[2]);
+        if (Integer.parseInt(dat2[2]) > Integer.parseInt(dat1[2]))
+            return true;
+        else
+            return false;
+    }
 
     public void modificar(final com.beardedhen.androidbootstrap.BootstrapEditText e, final android.content.Context v){
         e.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -144,16 +158,19 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
                                 "select nombre,fechaNac,peso,altura,email from usuarios where dni=" + dni, null);
                         if (fila.moveToFirst()) {
 
-                            if (!eNom.getText().toString().equals(fila.getString(0))) boton.setEnabled(true);
-
-                            if (!eFecha.getText().toString().equals(fila.getString(1))) boton.setEnabled(true);
-
-                            if (!ePeso.getText().toString().equals(fila.getString(2))) boton.setEnabled(true);
-
-                            if (!eAlt.getText().toString().equals(fila.getString(3))) boton.setEnabled(true);
-
-                            if (!eEmail.getText().toString().equals(fila.getString(4))) boton.setEnabled(true);
-                        }
+                            if (!eNom.getText().toString().equals(fila.getString(0)) ||
+                                    !eFecha.getText().toString().equals(fila.getString(1)) ||
+                                    !ePeso.getText().toString().equals(fila.getString(2)) ||
+                                    !eAlt.getText().toString().equals(fila.getString(3)) ||
+                                    !eEmail.getText().toString().equals(fila.getString(4))){
+                                    boton.setEnabled(true);
+                                    botonC.setEnabled(false);
+                            }
+                                else {
+                                boton.setEnabled(false);
+                                botonC.setEnabled(true);
+                                    }
+                            }
                         bd.close();
                     } catch (Exception ex) {
                         //.
@@ -228,7 +245,7 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
                 c = false;
             }else eEmail.setDefault();
 
-            if (!validarFecha(fecha) || f != true) {                                                                  //Validacion formato fecha
+            if (!validarFecha(fecha) || !f || !validacion(fecha)) {                                                                  //Validacion formato fecha
                 eFecha.setText("");
                 eFecha.setDanger();
                 eFecha.setHint("Fecha Invalida");
@@ -263,9 +280,12 @@ public class UsuarioYaRegistradoActivity extends RoboActivity {
             registro.put("email", email);
             int cant = bd.update("usuarios", registro, "dni=" + dni, null);
             bd.close();
-            if (cant == 1)
+            if (cant == 1) {
                 Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT)
                         .show();
+                Intent i = new Intent(this, ImpresionActivity.class);
+                startActivity(i);
+            }
             else
                 Toast.makeText(this, "Surgió un error",
                         Toast.LENGTH_SHORT).show();

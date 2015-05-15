@@ -2,6 +2,7 @@ package com.eci.mipersonaltrainer;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -75,10 +76,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         String[] dat1 = fecha.split("/");
         String[] dat2 = hoy.split("/");
         int ano = Integer.parseInt(dat2[2]) - Integer.parseInt(dat1[2]);
-        if ((Integer.parseInt(dat2[2]) - 10) > Integer.parseInt(dat1[2]))
-            return true;
-        else
-            return false;
+        return Integer.parseInt(dat2[2]) > Integer.parseInt(dat1[2]);
     }
 
     public static boolean validarFecha(String fecha) {
@@ -242,6 +240,9 @@ public class NuevoUsuarioActivity extends RoboActivity {
 
 
         if (c && d && e && f && g && h) {
+            Cursor fila = bd.rawQuery(
+                    "select nombre,fechaNac,peso,altura,email from usuarios where dni=" + dni, null);
+            if(!fila.moveToFirst()){
             try {
                 Intent i = new Intent(this, ObjetivosActivity.class);
                 i.putExtra("nombre", nombre);
@@ -251,10 +252,9 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 i.putExtra("altura", altura);
                 i.putExtra("email", email);
                 startActivity(i);
-                Toast.makeText(this, "Operación exitosa", Toast.LENGTH_SHORT).show();
             } catch (Exception ex) {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
-            }
+            }}else Toast.makeText(this,"EL Dni Ingresado ya existe", Toast.LENGTH_SHORT).show();
         }
     }
 }
