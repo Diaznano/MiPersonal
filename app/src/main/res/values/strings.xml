@@ -5,7 +5,7 @@
     <string name="title_activity_objetivo">Elegí un objetivo</string>
     <string name="hint_nombre">Nombre y Apellido</string>
     <string name="hint_email">Email</string>
-    <string name="hint_fecha">Fecha de Nacimiento (Ej. 10/06/1987)</string>
+    <string name="hint_fecha">Fecha de Nacimiento (Ej. 20/06/1987)</string>
     <string name="hint_peso">Peso</string>
     <string name="hint_altura">Altura</string>
     <string name="hint_dni">DNI (Sin . )</string>
