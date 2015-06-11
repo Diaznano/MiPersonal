@@ -34,7 +34,10 @@
     <string name="text_fecha">Fecha Nacimiento:</string>
     <string name="boton_guardar_cambios">Guardar Cambios</string>
     <string name="title_activity_sesion">Iniciar Sesion</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="boton_volver">Volver</string>
+    <string name="boton_nueva_rutina">Nueva Rutina</string>
+    <string name="boton_nueva_dieta">Nueva Dieta</string>
     <string name="title_activity_paneladmin">Panel Admin</string>
+    <string name="title_activity_opciones_panel">OpcionesPanel</string>
+    <string name="title_activity_nuevo_for">NuevoFor</string>
 </resources>

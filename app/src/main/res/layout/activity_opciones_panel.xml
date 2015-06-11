@@ -3,38 +3,39 @@
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
+   tools:context=".MainActivity"
     android:background="@drawable/fisico">
+
 
     <info.hoang8f.widget.FButton
         android:layout_width="match_parent"
         android:layout_height="80dp"
         fbutton:buttonColor="@color/fbutton_color_turquoise"
-        android:text="@string/boton_registrado"
-        android:id="@+id/bRegistrado"
+        android:text="@string/boton_nueva_rutina"
+        android:id="@+id/bNuevaRutina"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
         fbutton:shadowColor="@color/fbutton_color_midnight_blue"
-        android:layout_marginTop="150dp"
-        android:onClick="abreVistaUsuarioYaRegistrado"/>
+        android:layout_marginBottom="96dp"
+        android:onClick="nuevaRutina"
+        android:layout_above="@+id/bNuevaDieta"
+        android:layout_alignParentLeft="true" />
 
     <info.hoang8f.widget.FButton
         android:layout_width="match_parent"
         android:layout_height="80dp"
         fbutton:buttonColor="@color/fbutton_color_turquoise"
-        android:text="@string/boton_nuevo_usuario"
+        android:text="@string/boton_nueva_dieta"
         android:id="@+id/bNuevaDieta"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
         fbutton:shadowColor="@color/fbutton_color_midnight_blue"
-        android:layout_marginTop="280dp"
-        android:onClick="abreVistaNuevoUsuario" />
+        android:layout_marginBottom="144dp"
+        android:onClick="nuevaDieta"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
 
 
 </RelativeLayout>

@@ -53,8 +53,12 @@
             android:label="@string/title_activity_sesion" >
         </activity>
         <activity
-            android:name=".paneladmin"
-            android:label="@string/title_activity_paneladmin" >
+            android:name=".OpcionesPanel"
+            android:label="@string/title_activity_opciones_panel" >
+        </activity>
+        <activity
+            android:name=".NuevoFor"
+            android:label="@string/title_activity_nuevo_for" >
         </activity>
     </application>
 

@@ -18,7 +18,7 @@
         android:layout_marginBottom="148dp"
         android:textStyle="bold"
         android:textSize="35dp"
-        android:layout_alignBottom="@+id/bNuevoUsuario"
+        android:layout_alignBottom="@+id/bNuevaDieta"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/boton_nuevo_usuario"
-        android:id="@+id/bNuevoUsuario"
+        android:id="@+id/bNuevaDieta"
         android:background="#009ffb"
         android:alpha="0.8"
         android:onClick="abreVistaNuevoUsuario"

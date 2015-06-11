@@ -132,7 +132,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         String altura = etAltura.getText().toString();
 
 
-        if (nombre.length() == 0 || dni.length() == 0 || email.length() == 0 || fecha.length() == 0
+        if (nombre.length() == 0 || dni.length() == 0 || fecha.length() == 0
                 || peso.length() == 0 || altura.length() == 0) {
             Toast.makeText(this, "Debe completrar los campos faltantes", Toast.LENGTH_SHORT).show();
         }
@@ -173,19 +173,14 @@ public class NuevoUsuarioActivity extends RoboActivity {
             }
         }
 
-        if (email.length() == 0) {
-            etEmail.setDanger();
-            etEmail.setHint("Completar E-MAIL");
-            c = false;
-        } else {
-            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*+[.][a-z]*+") || email.length() <= 0 || !c) {                                                                 //Validacion de E-Mail
+        if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*+[.][a-z]*+") || email.length() <= 0 || !c) {                                                                 //Validacion de E-Mail
                 etEmail.setHint("E-MAIL invalido");
                 etEmail.setDanger();
                 etEmail.setText("");
                 c = false;
-            } else
+        } else
                 etEmail.setDefault();
-        }
+
 
         if (fecha.length() == 0) {
             etFecha.setDanger();

@@ -25,6 +25,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
         // create usuarios table
         db.execSQL(CREATE_USUARIO_TABLE);
+
     }
 
     @Override
