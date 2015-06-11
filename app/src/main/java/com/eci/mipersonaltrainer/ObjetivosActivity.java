@@ -19,7 +19,7 @@ public class ObjetivosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_objetivos);
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_objetivos, menu);
@@ -39,7 +39,7 @@ public class ObjetivosActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
     public void abreVistaImpresion(View view){
         Intent intent = new Intent(this, ImpresionActivity.class);
         startActivity(intent);

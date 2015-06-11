@@ -1,17 +1,12 @@
 package com.eci.mipersonaltrainer;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -19,10 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import info.hoang8f.widget.FButton;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
+
 @ContentView(R.layout.activity_nuevo_usuario)
 
 public class NuevoUsuarioActivity extends RoboActivity {
@@ -35,7 +29,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         super.onCreate(savedInstanceState);
         etNomApe = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etNom);
         etAltura = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etAltura);
-        etPeso = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etPeso);
+        etPeso = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etContraseña);
         etEmail = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etEmail);
         etFecha = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etFecha);
         etDni = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etDni);
@@ -43,7 +37,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_nuevo_usuario, menu);
@@ -64,7 +58,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     //VALIDAR FORMATO dd/mm/yyyy
 
@@ -119,7 +113,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
                     if(e == etAltura)e.setHint("Altura");
                     if(e == etEmail)e.setHint("Email");
                     if(e == etPeso)e.setHint("Peso");
-                    if(e == etDni)e.setHint("DNI Sin .");
+                    if(e == etDni)e.setHint("DNI (Sin .)");
                     if(e == etFecha)e.setHint("Fecha de Nacimiento (Ej. 20/06/1987)");
                 }
             }
