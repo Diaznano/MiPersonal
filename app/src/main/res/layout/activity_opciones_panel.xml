@@ -24,6 +24,35 @@
 
     <info.hoang8f.widget.FButton
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
+        android:text="Inicio"
+        android:id="@+id/bInicio"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="3dp"
+        fbutton:cornerRadius="3dp"
+        android:onClick="inicio"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+        android:layout_marginTop="520dp"
+        android:textSize="20dp" />
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
+        android:text="Cambiar Contraseña"
+        android:id="@+id/bCambiarContra"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="3dp"
+        fbutton:cornerRadius="3dp"
+        android:onClick="cambiar"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="match_parent"
         android:layout_height="80dp"
         fbutton:buttonColor="@color/fbutton_color_turquoise"
         android:text="@string/boton_nueva_dieta"

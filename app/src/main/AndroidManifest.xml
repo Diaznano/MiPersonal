@@ -60,6 +60,10 @@
             android:name=".NuevoFor"
             android:label="@string/title_activity_nuevo_for" >
         </activity>
+        <activity
+            android:name=".CambioContra"
+            android:label="@string/title_activity_cambio_contra" >
+        </activity>
     </application>
 
 </manifest>

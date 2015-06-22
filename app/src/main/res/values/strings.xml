@@ -40,4 +40,9 @@
     <string name="title_activity_paneladmin">Panel Admin</string>
     <string name="title_activity_opciones_panel">OpcionesPanel</string>
     <string name="title_activity_nuevo_for">NuevoFor</string>
+    <string name="title_activity_po_iexplorer">PoIExplorer</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_text_view_lista_archivos">text_view_lista_archivos</string>
+    <string name="title_activity_cambio_contra">cambio_contra</string>
 </resources>

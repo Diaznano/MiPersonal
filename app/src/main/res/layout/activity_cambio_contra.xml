@@ -1,12 +1,125 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.eci.mipersonaltrainer.cambio_contra">
+    >
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        bootstrap:be_roundedCorners="true"
+        android:id="@+id/etContraNueva"
+        android:hint="Contraseña Nueva"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/etContraActual"
+        android:layout_alignLeft="@+id/etContraActual" />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        bootstrap:be_roundedCorners="true"
+        android:id="@+id/etContraActual"
+        android:hint="Contraseña Actual"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true" />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        bootstrap:be_roundedCorners="true"
+        android:id="@+id/etContraReptir"
+        android:hint="Repetir Contraseña"
+        android:layout_alignBottom="@+id/tvUsuario"
+        android:layout_alignParentRight="true" />
+
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
+        android:text="Confirmar"
+        android:id="@+id/bCambiar"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="3dp"
+        fbutton:cornerRadius="5dp"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+        android:onClick="confirmar"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="99dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña Actual:"
+        android:id="@+id/tvContraseñaActual"
+        android:textSize="19dp"
+        android:layout_alignBottom="@+id/etContraActual"
+        android:layout_alignParentLeft="true" />
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
+        android:text="Atras"
+        android:id="@+id/bAtras"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="3dp"
+        fbutton:cornerRadius="5dp"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+        android:onClick="atras"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repetir Contraseña:"
+        android:id="@+id/tvUsuario"
+        android:textSize="19dp"
+        android:layout_marginTop="280dp"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña Nueva:"
+        android:id="@+id/tvContraseñaNueva"
+        android:textSize="19dp"
+        android:layout_alignBottom="@+id/etContraNueva"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cambiar Contraseña"
+        android:id="@+id/textView"
+        android:textSize="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*Contraseña mayor a 8 y menor a 16 caracteres"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/tvUsuario"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="30dp" />
+
 
 </RelativeLayout>

@@ -1,38 +1,51 @@
 package com.eci.mipersonaltrainer;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import roboguice.activity.RoboActivity;
 
 
-public class sesion extends ActionBarActivity {
+public class Sesion extends RoboActivity {
+
+    private com.beardedhen.androidbootstrap.BootstrapEditText etUsuario,etContraseña;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sesion);
+        etUsuario = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etUsuario);
+        etContraseña = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etContraseña);
+
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sesion, menu);
-        return true;
+    public void validad(View v){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String usuario = etUsuario.getText().toString();
+        String contraseña = etContraseña.getText().toString();
+
+        try {
+            Cursor fila = bd.rawQuery(
+                    "select contrasena from admin where usuario=" + usuario, null);
+            if (contraseña.equals(fila.getString(0))) {
+                Intent i = new Intent(this, OpcionesPanel.class);
+                i.putExtra("usuario",usuario);
+                startActivity(i);
+            } else Toast.makeText(this, "Contraseña Incorrecta", Toast.LENGTH_SHORT).show();
+        }catch(Exception ex){
+            Toast.makeText(this,"Error debe ingresar un usuario",Toast.LENGTH_SHORT).show();}
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
+

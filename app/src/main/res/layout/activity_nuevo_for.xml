@@ -99,7 +99,7 @@
         android:layout_alignTop="@+id/tvDesde1"
         android:layout_alignLeft="@+id/tvObjetivos"
         android:layout_alignBottom="@+id/tvDesde1"
-        android:layout_alignRight="@+id/bGuardarCambios" />
+        android:layout_toLeftOf="@+id/tvHasta1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -144,9 +144,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/lvAlturaDesde"
         android:layout_alignBottom="@+id/tvDesde2"
-        android:layout_alignRight="@+id/bGuardarCambios"
         android:layout_alignTop="@+id/tvDesde2"
-        android:layout_toRightOf="@+id/tvDesde2" />
+        android:layout_toRightOf="@+id/tvDesde2"
+        android:layout_toLeftOf="@+id/tvHasta2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -212,5 +212,15 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/tvHasta3"
         android:layout_alignTop="@+id/tvHasta3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:id="@+id/button"
+        android:layout_alignBottom="@+id/tvRutina"
+        android:layout_alignLeft="@+id/bVolver"
+        android:textSize="15dp"
+        android:onClick="buscador" />
 
 </RelativeLayout>

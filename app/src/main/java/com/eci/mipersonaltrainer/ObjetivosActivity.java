@@ -12,38 +12,22 @@ import android.widget.Toast;
 
 
 public class ObjetivosActivity extends AppCompatActivity {
-
+    private info.hoang8f.widget.FButton bCambiar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_objetivos);
+        bCambiar = (info.hoang8f.widget.FButton) findViewById(R.id.bCambiarContra);
     }
 
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_objetivos, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
     public void abreVistaImpresion(View view){
         Intent intent = new Intent(this, ImpresionActivity.class);
         startActivity(intent);
     }
+
+
+
     public void Salud(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
