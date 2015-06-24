@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nueva Dieta"
+        android:id="@+id/tvTitulo"
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Objetivos"
+        android:id="@+id/tvObjetivos"
+        android:textSize="20dp"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/tvRutina"
+        android:layout_toLeftOf="@+id/lvObjetivos" />
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
+        android:text="@string/boton_guardar_cambios"
+        android:id="@+id/bGuardar"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="4dp"
+        fbutton:cornerRadius="5dp"
+        android:onClick="guardar"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="500dp"/>
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_volver"
+        android:id="@+id/bVolver"
+        android:textSize="22sp"
+        fbutton:buttonColor="@color/fbutton_color_turquoise"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="4dp"
+        fbutton:cornerRadius="5dp"
+        fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+        android:onClick="volver"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="200dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Rutina"
+        android:id="@+id/tvRutina"
+        android:textSize="20dp"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/tvTitulo"
+        android:layout_alignLeft="@+id/bGuardarCambios" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvObjetivos"
+        android:layout_alignBottom="@+id/tvObjetivos"
+        android:layout_alignRight="@+id/tvTitulo"
+        android:layout_alignTop="@+id/tvObjetivos"
+        android:layout_toRightOf="@+id/tvRutina" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad"
+        android:id="@+id/tvEdad"
+        android:layout_marginTop="37dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/tvObjetivos"
+        android:layout_alignRight="@+id/tvObjetivos" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desde"
+        android:id="@+id/tvDesde1"
+        android:textSize="15dp"
+        android:layout_below="@+id/tvEdad"
+        android:layout_alignLeft="@+id/tvDesde2"
+        android:layout_marginTop="25dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvEdadDesde"
+        android:layout_alignTop="@+id/tvDesde1"
+        android:layout_alignLeft="@+id/tvObjetivos"
+        android:layout_alignBottom="@+id/tvDesde1"
+        android:layout_toLeftOf="@+id/tvHasta1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasta"
+        android:id="@+id/tvHasta1"
+        android:layout_alignBottom="@+id/lvEdadDesde"
+        android:layout_alignRight="@+id/lvObjetivos"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvEdadHasta"
+        android:layout_alignBottom="@+id/tvHasta1"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvHasta1"
+        android:layout_toRightOf="@+id/tvHasta1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altura"
+        android:id="@+id/tvAltura"
+        android:textSize="20dp"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/lvEdadDesde"
+        android:layout_alignLeft="@+id/tvEdad" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desde"
+        android:id="@+id/tvDesde2"
+        android:textSize="15dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/tvAltura"
+        android:layout_toLeftOf="@+id/lvEdadDesde" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvAlturaDesde"
+        android:layout_alignBottom="@+id/tvDesde2"
+        android:layout_alignTop="@+id/tvDesde2"
+        android:layout_toRightOf="@+id/tvDesde2"
+        android:layout_toLeftOf="@+id/tvHasta2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasta"
+        android:id="@+id/tvHasta2"
+        android:layout_alignBottom="@+id/lvAlturaDesde"
+        android:layout_alignLeft="@+id/tvHasta1"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvAlturaHasta"
+        android:layout_alignBottom="@+id/tvHasta2"
+        android:layout_alignRight="@+id/lvEdadHasta"
+        android:layout_alignTop="@+id/tvHasta2"
+        android:layout_toRightOf="@+id/tvHasta2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peso"
+        android:id="@+id/tvPeso"
+        android:layout_marginTop="24dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/lvAlturaDesde"
+        android:layout_alignLeft="@+id/tvAltura" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desde"
+        android:id="@+id/tvDesde3"
+        android:layout_marginTop="25dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/tvPeso"
+        android:layout_alignLeft="@+id/tvDesde2" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvPesoDesde"
+        android:layout_alignTop="@+id/tvDesde3"
+        android:layout_alignBottom="@+id/tvDesde3"
+        android:layout_alignLeft="@+id/lvAlturaDesde"
+        android:layout_alignRight="@+id/lvAlturaDesde" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasta"
+        android:id="@+id/tvHasta3"
+        android:layout_alignBottom="@+id/lvPesoDesde"
+        android:layout_alignLeft="@+id/tvHasta2"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvPesoHasta"
+        android:layout_alignBottom="@+id/tvHasta3"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/tvHasta3"
+        android:layout_alignTop="@+id/tvHasta3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:id="@+id/button"
+        android:layout_alignBottom="@+id/tvRutina"
+        android:layout_alignLeft="@+id/bVolver"
+        android:textSize="15dp"
+        android:onClick="buscador" />
+
+</RelativeLayout>

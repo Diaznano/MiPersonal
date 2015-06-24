@@ -28,7 +28,7 @@
         android:layout_height="100dp"
         fbutton:buttonColor="@color/fbutton_color_turquoise"
         android:text="@string/boton_nuevo_usuario"
-        android:id="@+id/bNuevoUsuario"
+        android:id="@+id/bNuevaDieta"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="7dp"
         fbutton:cornerRadius="5dp"

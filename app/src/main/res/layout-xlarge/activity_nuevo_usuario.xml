@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/etPeso"
+        android:id="@+id/etContraseña"
         android:hint="@string/hint_peso"
         android:layout_marginTop="87dp"
         android:textSize="30dp"
@@ -107,9 +107,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:hint="kg"
         android:id="@+id/tvKg"
-        android:layout_alignBottom="@+id/etPeso"
-        android:layout_toRightOf="@+id/etPeso"
-        android:layout_toEndOf="@+id/etPeso" />
+        android:layout_alignBottom="@+id/etContraseña"
+        android:layout_toRightOf="@+id/etContraseña"
+        android:layout_toEndOf="@+id/etContraseña" />
 
     <TextView
         android:layout_width="wrap_content"
