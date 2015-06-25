@@ -16,7 +16,7 @@ public class ImpresionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_impresion);
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_impresion, menu);
@@ -36,7 +36,7 @@ public class ImpresionActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
     public void mensajeRutina(View view){
         /*bd.insert("usuarios", null, registro);
         bd.close();*/

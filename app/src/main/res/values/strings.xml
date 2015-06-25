@@ -1,15 +1,18 @@
 <resources>
     <string name="app_name">Mi Personal Trainer</string>
-    <string name="action_settings">Ajustes</string>
+    <string name="action_settings">Admin</string>
     <string name="title_activity_nuevo_usuario">Nuevo Usuario</string>
     <string name="title_activity_objetivo">Elegí un objetivo</string>
     <string name="hint_nombre">Nombre y Apellido</string>
     <string name="hint_email">Email</string>
     <string name="hint_fecha">Fecha de Nacimiento (Ej. 20/06/1987)</string>
     <string name="hint_peso">Peso</string>
+    <string name="hint_contra">Contraseña</string>
+    <string name="hint_usuario">Usuario</string>
     <string name="hint_altura">Altura</string>
     <string name="hint_dni">DNI (Sin . )</string>
     <string name="boton_siguiente">Siguiente</string>
+    <string name="boton_sesion">Iniciar Sesión</string>
     <string name="content_salud">Quiero Salud!</string>
     <string name="content_fitness">Quiero Fitness!</string>
     <string name="content_deportes">Quiero Deportes!</string>
@@ -30,4 +33,16 @@
     <string name="text_altura">Altura:</string>
     <string name="text_fecha">Fecha Nacimiento:</string>
     <string name="boton_guardar_cambios">Guardar Cambios</string>
+    <string name="title_activity_sesion">Iniciar Sesion</string>
+    <string name="boton_volver">Volver</string>
+    <string name="boton_nueva_rutina">Nueva Rutina</string>
+    <string name="boton_nueva_dieta">Nueva Dieta</string>
+    <string name="title_activity_paneladmin">Panel Admin</string>
+    <string name="title_activity_opciones_panel">OpcionesPanel</string>
+    <string name="title_activity_nuevo_for">NuevoFor</string>
+    <string name="title_activity_po_iexplorer">PoIExplorer</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_text_view_lista_archivos">text_view_lista_archivos</string>
+    <string name="title_activity_cambio_contra">cambio_contra</string>
 </resources>

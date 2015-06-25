@@ -1,17 +1,12 @@
 package com.eci.mipersonaltrainer;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -19,10 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import info.hoang8f.widget.FButton;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
+
 @ContentView(R.layout.activity_nuevo_usuario)
 
 public class NuevoUsuarioActivity extends RoboActivity {
@@ -35,7 +29,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         super.onCreate(savedInstanceState);
         etNomApe = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etNom);
         etAltura = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etAltura);
-        etPeso = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etPeso);
+        etPeso = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etContraseña);
         etEmail = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etEmail);
         etFecha = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etFecha);
         etDni = (com.beardedhen.androidbootstrap.BootstrapEditText) findViewById(R.id.etDni);
@@ -43,28 +37,6 @@ public class NuevoUsuarioActivity extends RoboActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_nuevo_usuario, menu);
-        return true;
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     //VALIDAR FORMATO dd/mm/yyyy
 
@@ -119,15 +91,13 @@ public class NuevoUsuarioActivity extends RoboActivity {
                     if(e == etAltura)e.setHint("Altura");
                     if(e == etEmail)e.setHint("Email");
                     if(e == etPeso)e.setHint("Peso");
-                    if(e == etDni)e.setHint("DNI Sin .");
+                    if(e == etDni)e.setHint("DNI (Sin .)");
                     if(e == etFecha)e.setHint("Fecha de Nacimiento (Ej. 20/06/1987)");
                 }
             }
         });
     }
     public void alta(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
-        SQLiteDatabase bd = admin.getWritableDatabase();
         boolean b = true, c = true, d = true, e = true, f = true, g = true, h = true;
         String nombre = etNomApe.getText().toString();
         String dni = etDni.getText().toString();
@@ -138,7 +108,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
         String altura = etAltura.getText().toString();
 
 
-        if (nombre.length() == 0 || dni.length() == 0 || email.length() == 0 || fecha.length() == 0
+        if (nombre.length() == 0 || dni.length() == 0 || fecha.length() == 0
                 || peso.length() == 0 || altura.length() == 0) {
             Toast.makeText(this, "Debe completrar los campos faltantes", Toast.LENGTH_SHORT).show();
         }
@@ -179,19 +149,14 @@ public class NuevoUsuarioActivity extends RoboActivity {
             }
         }
 
-        if (email.length() == 0) {
-            etEmail.setDanger();
-            etEmail.setHint("Completar E-MAIL");
-            c = false;
-        } else {
-            if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*+[.][a-z]*+") || email.length() <= 0 || !c) {                                                                 //Validacion de E-Mail
+        if (!email.matches("[a-zA-Z0-9._-]*@[a-z]*+[.][a-z]*+") || email.length() <= 0 || !c) {                                                                 //Validacion de E-Mail
                 etEmail.setHint("E-MAIL invalido");
                 etEmail.setDanger();
                 etEmail.setText("");
                 c = false;
-            } else
+        } else
                 etEmail.setDefault();
-        }
+
 
         if (fecha.length() == 0) {
             etFecha.setDanger();
@@ -240,11 +205,7 @@ public class NuevoUsuarioActivity extends RoboActivity {
 
 
         if (c && d && e && f && g && h) {
-            Cursor fila = bd.rawQuery(
-                    "select nombre,fechaNac,peso,altura,email from usuarios where dni=" + dni, null);
-            if(!fila.moveToFirst()){
-            try {
-                Intent i = new Intent(this, ObjetivosActivity.class);
+                           Intent i = new Intent(this, ObjetivosActivity.class);
                 i.putExtra("nombre", nombre);
                 i.putExtra("dni", dni);
                 i.putExtra("fechaNac", fecha);
@@ -252,12 +213,10 @@ public class NuevoUsuarioActivity extends RoboActivity {
                 i.putExtra("altura", altura);
                 i.putExtra("email", email);
                 startActivity(i);
-            } catch (Exception ex) {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
-            }}else Toast.makeText(this,"EL Dni Ingresado ya existe", Toast.LENGTH_SHORT).show();
+           }else Toast.makeText(this,"EL Dni Ingresado ya existe", Toast.LENGTH_SHORT).show();
         }
     }
-}
+
 
 
 

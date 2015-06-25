@@ -1,12 +1,14 @@
 package com.eci.mipersonaltrainer;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
+            SQLiteDatabase db = admin.getWritableDatabase();
+            ContentValues registro = new ContentValues();
+            Intent i = new Intent(this, Sesion.class);
+            int x = 1;
+            i.putExtra("band",x);
+            registro.put("usuario", "nano");
+            registro.put("contrasena", "123");
+            db.insert("admin", null, registro);
+            db.close();
+            startActivity(i);
             return true;
+
         }
 
         return super.onOptionsItemSelected(item);

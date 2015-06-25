@@ -48,6 +48,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eci.mipersonaltrainer.MainActivity" />
         </activity>
+        <activity
+            android:name=".Sesion"
+            android:label="@string/title_activity_sesion" >
+        </activity>
+        <activity
+            android:name=".OpcionesPanel"
+            android:label="@string/title_activity_opciones_panel" >
+        </activity>
+        <activity
+            android:name=".NuevoFor"
+            android:label="@string/title_activity_nuevo_for" >
+        </activity>
+        <activity
+            android:name=".CambioContra"
+            android:label="@string/title_activity_cambio_contra" >
+        </activity>
     </application>
 
 </manifest>

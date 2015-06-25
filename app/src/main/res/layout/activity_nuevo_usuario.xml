@@ -83,7 +83,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         bootstrap:be_roundedCorners="true"
-        android:id="@+id/etPeso"
+        android:id="@+id/etContraseña"
         android:hint="@string/hint_peso"
         android:layout_below="@+id/etAltura"
         android:layout_alignParentLeft="true"
@@ -116,9 +116,9 @@
         android:hint="kg"
         android:id="@+id/tvKg"
         android:textSize="16sp"
-        android:layout_alignBottom="@+id/etPeso"
+        android:layout_alignBottom="@+id/etContraseña"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/etPeso"/>
+        android:layout_toRightOf="@id/etContraseña"/>
 
     <TextView
         android:layout_width="wrap_content"
